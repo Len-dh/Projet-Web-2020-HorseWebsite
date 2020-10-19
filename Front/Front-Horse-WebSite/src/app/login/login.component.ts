@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormsModule, FormControl, FormGroup, FormBuilder, Validator, Validators, ReactiveFormsModule } from "@angular/forms";
 import { RegistrationService } from '../registration.service';
 import { User } from '../user';
 
@@ -9,7 +9,15 @@ import { User } from '../user';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  
   user = new User();
+  hide = false;
+
+  loginForm: FormGroup = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl('')
+  });
+
   constructor(private _service: RegistrationService) {}
 
   ngOnInit(): void {}
