@@ -20,7 +20,7 @@ public class RegistrationController {
     @PostMapping("/registeruser")
     public User registerUser(@RequestBody User user) throws Exception {
         String tempEmailId = user.getEmailId();
-        if (tempEmailId != null && "".equals(tempEmailId)){
+        if (tempEmailId != null && !"".equals(tempEmailId)){
             User userobj = service.fetchUserByEmailId(tempEmailId);
             if (userobj != null){
                 throw new Exception("user with " + tempEmailId + " is already exist");

@@ -1,6 +1,7 @@
 <div class="container">
   <h2>Stacked form</h2>
   <form (ngSubmit)="loginUser()">
+    <small>{{ msg }}</small>
     <div class="form-group">
       <label for="email">Email:</label>
       <input
@@ -29,4 +30,7 @@
     </div>
     <button type="submit" class="btn btn-info">Login</button>
   </form>
+  <small class="float-right" [routerLink]="['registration']"
+    >New User => Registration here</small
+  >
 </div>
