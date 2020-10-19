@@ -1,1 +1,54 @@
-<p>registration works!</p>
+<mat-card class="mat-elevation-z5">
+    <mat-card-content>
+        <form [formGroup]="registerForm" (ngSubmit)="registrationUser()">
+            <h2>S'inscrire</h2>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Nom" [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}"
+                    required>
+                <mat-error>
+                    Le nom n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Prénom" [(ngModel)]="user.firstName" [ngModelOptions]="{standalone: true}"
+                    required>
+                <mat-error>
+                    Le prénom n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Email" [(ngModel)]="user.emailId" [ngModelOptions]="{standalone: true}"
+                    required>
+                <mat-error>
+                    L'adresse email n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Numéro de téléphone" [(ngModel)]="user.phone"
+                    [ngModelOptions]="{standalone: true}" required>
+                <mat-error>
+                    Le numéro de téléphone n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Numéro de license" [(ngModel)]="user.licenceNumber"
+                    [ngModelOptions]="{standalone: true}" required>
+                <mat-error>
+                    Le numéro de license n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput type="password" placeholder="Mot de passe" [type]="!hide ? 'password' : 'text'"
+                [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+                <mat-error>
+                    Le mot de passe n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button class="register">S'inscrire</button>
+        </form>
+    </mat-card-content>
+</mat-card>

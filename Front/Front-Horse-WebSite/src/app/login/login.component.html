@@ -1,32 +1,27 @@
-<div class="container">
-  <h2>Stacked form</h2>
-  <form (ngSubmit)="loginUser()">
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input
-        type="email"
-        class="form-control"
-        placeholder="Enter email"
-        name="email"
-        [(ngModel)]="user.emailId"
-      />
-    </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input
-        type="password"
-        class="form-control"
-        placeholder="Enter password"
-        name="password"
-        [(ngModel)]="user.password"
-      />
-    </div>
-    <div class="form-group form-check">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember" />
-        Remember me
-      </label>
-    </div>
-    <button type="submit" class="btn btn-info">Login</button>
-  </form>
-</div>
+<mat-card class="mat-elevation-z5">
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+      <h2>Se connecter</h2>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Email" [(ngModel)]="user.emailId" [ngModelOptions]="{standalone: true}" required>
+        <mat-error>
+          L'adresse email n'est pas valide
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="password" placeholder="Mot de passe" [type]="!hide ? 'password' : 'text'"
+          [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        <mat-error>
+          Le mot de passe n'est pas valide
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button class="login" type="submit">Se connecter</button>
+    </form>
+    <a href="register" class="register">S'inscrire</a>
+    <a href="recovery" class="recovery">Mot de passe oublié ?</a>
+  </mat-card-content>
+</mat-card>
