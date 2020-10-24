@@ -8,6 +8,7 @@ import { AccountRecoveryComponent } from './account-recovery/account-recovery.co
 import { UserHomepageComponent } from './user-homepage/user-homepage.component';
 import { InstructorHomepageComponent } from './instructor-homepage/instructor-homepage.component';
 import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
+import { HorsesManagementComponent } from './horses-management/horses-management.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'user-homepage', component: UserHomepageComponent },
   { path: 'instructor-homepage', component: InstructorHomepageComponent },
   { path: 'admin-homepage', component: AdminHomepageComponent },
+  { path: 'horses-management', component: HorsesManagementComponent },
 
 ];
 

@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,20 +25,37 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { InstructorHomepageComponent } from './instructor-homepage/instructor-homepage.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { UserHomepageComponent } from './user-homepage/user-homepage.component';
 import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
 import { AccountRecoveryComponent } from './account-recovery/account-recovery.component';
+import { HorsesManagementComponent } from './horses-management/horses-management.component';
+import { HorsesDialogBoxComponent } from './horses-dialog-box/horses-dialog-box.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegistrationComponent, HomeComponent, InstructorHomepageComponent, NavigationComponent, UserHomepageComponent, AdminHomepageComponent, AccountRecoveryComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegistrationComponent,
+    HomeComponent,
+    InstructorHomepageComponent,
+    NavigationComponent,
+    UserHomepageComponent,
+    AdminHomepageComponent,
+    AccountRecoveryComponent,
+    HorsesManagementComponent,
+    HorsesDialogBoxComponent
+  ],
   imports: [
-    BrowserModule, 
-    FormsModule, 
-    HttpClientModule, 
-    AppRoutingModule, 
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatListModule,
@@ -70,4 +85,4 @@ import { AccountRecoveryComponent } from './account-recovery/account-recovery.co
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
