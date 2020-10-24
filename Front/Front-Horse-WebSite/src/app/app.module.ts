@@ -31,9 +31,10 @@ import { HomeComponent } from './home/home.component';
 import { InstructorHomepageComponent } from './instructor-homepage/instructor-homepage.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { UserHomepageComponent } from './user-homepage/user-homepage.component';
+import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegistrationComponent, HomeComponent, InstructorHomepageComponent, NavigationComponent, UserHomepageComponent],
+  declarations: [AppComponent, LoginComponent, RegistrationComponent, HomeComponent, InstructorHomepageComponent, NavigationComponent, UserHomepageComponent, AdminHomepageComponent],
   imports: [
     BrowserModule, 
     FormsModule, 
