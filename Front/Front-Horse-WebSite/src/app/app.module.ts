@@ -32,9 +32,10 @@ import { InstructorHomepageComponent } from './instructor-homepage/instructor-ho
 import { NavigationComponent } from './navigation/navigation.component';
 import { UserHomepageComponent } from './user-homepage/user-homepage.component';
 import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
+import { AccountRecoveryComponent } from './account-recovery/account-recovery.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegistrationComponent, HomeComponent, InstructorHomepageComponent, NavigationComponent, UserHomepageComponent, AdminHomepageComponent],
+  declarations: [AppComponent, LoginComponent, RegistrationComponent, HomeComponent, InstructorHomepageComponent, NavigationComponent, UserHomepageComponent, AdminHomepageComponent, AccountRecoveryComponent],
   imports: [
     BrowserModule, 
     FormsModule, 
