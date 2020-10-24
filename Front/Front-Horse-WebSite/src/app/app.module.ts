@@ -36,6 +36,8 @@ import { AdminHomepageComponent } from './admin-homepage/admin-homepage.componen
 import { AccountRecoveryComponent } from './account-recovery/account-recovery.component';
 import { HorsesManagementComponent } from './horses-management/horses-management.component';
 import { HorsesDialogBoxComponent } from './horses-dialog-box/horses-dialog-box.component';
+import { UsersManagementComponent } from './users-management/users-management.component';
+import { UsersDialogBoxComponent } from './users-dialog-box/users-dialog-box.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { HorsesDialogBoxComponent } from './horses-dialog-box/horses-dialog-box.
     AdminHomepageComponent,
     AccountRecoveryComponent,
     HorsesManagementComponent,
-    HorsesDialogBoxComponent
+    HorsesDialogBoxComponent,
+    UsersManagementComponent,
+    UsersDialogBoxComponent
   ],
   imports: [
     BrowserModule,
