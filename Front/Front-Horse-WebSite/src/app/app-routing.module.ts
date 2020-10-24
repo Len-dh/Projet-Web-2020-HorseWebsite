@@ -9,6 +9,7 @@ import { UserHomepageComponent } from './user-homepage/user-homepage.component';
 import { InstructorHomepageComponent } from './instructor-homepage/instructor-homepage.component';
 import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
 import { HorsesManagementComponent } from './horses-management/horses-management.component';
+import { UsersManagementComponent } from './users-management/users-management.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'instructor-homepage', component: InstructorHomepageComponent },
   { path: 'admin-homepage', component: AdminHomepageComponent },
   { path: 'horses-management', component: HorsesManagementComponent },
+  { path: 'users-management', component: UsersManagementComponent },
 
 ];
 
