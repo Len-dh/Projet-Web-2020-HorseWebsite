@@ -29,9 +29,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { InstructorHomepageComponent } from './instructor-homepage/instructor-homepage.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegistrationComponent, HomeComponent, InstructorHomepageComponent],
+  declarations: [AppComponent, LoginComponent, RegistrationComponent, HomeComponent, InstructorHomepageComponent, NavigationComponent],
   imports: [
     BrowserModule, 
     FormsModule, 
