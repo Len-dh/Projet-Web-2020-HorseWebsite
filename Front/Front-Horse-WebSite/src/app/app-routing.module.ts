@@ -11,6 +11,7 @@ import { AdminHomepageComponent } from './admin-homepage/admin-homepage.componen
 import { HorsesManagementComponent } from './horses-management/horses-management.component';
 import { UsersManagementComponent } from './users-management/users-management.component';
 import { SuperAdminHomepageComponent } from './super-admin-homepage/super-admin-homepage.component';
+import { RidingLessonsComponent } from './riding-lessons/riding-lessons.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'horses-management', component: HorsesManagementComponent },
   { path: 'users-management', component: UsersManagementComponent },
   { path: 'super-admin-homepage', component: SuperAdminHomepageComponent },
+  { path: 'riding-lessons', component: RidingLessonsComponent },
 
 ];
 

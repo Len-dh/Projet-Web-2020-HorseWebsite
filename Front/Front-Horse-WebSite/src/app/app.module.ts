@@ -39,6 +39,8 @@ import { HorsesDialogBoxComponent } from './horses-dialog-box/horses-dialog-box.
 import { UsersManagementComponent } from './users-management/users-management.component';
 import { UsersDialogBoxComponent } from './users-dialog-box/users-dialog-box.component';
 import { SuperAdminHomepageComponent } from './super-admin-homepage/super-admin-homepage.component';
+import { RidingLessonsComponent } from './riding-lessons/riding-lessons.component';
+import { LessonsDialogBoxComponent } from './lessons-dialog-box/lessons-dialog-box.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { SuperAdminHomepageComponent } from './super-admin-homepage/super-admin-
     HorsesDialogBoxComponent,
     UsersManagementComponent,
     UsersDialogBoxComponent,
-    SuperAdminHomepageComponent
+    SuperAdminHomepageComponent,
+    RidingLessonsComponent,
+    LessonsDialogBoxComponent
   ],
   imports: [
     BrowserModule,
