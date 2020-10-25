@@ -27,7 +27,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { LoginUserComponent } from './login-user/login-user.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { InstructorHomepageComponent } from './instructor-homepage/instructor-homepage.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -46,7 +46,7 @@ import { AccountManagementComponent } from './account-management/account-managem
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    LoginUserComponent,
     RegistrationComponent,
     HomeComponent,
     InstructorHomepageComponent,
