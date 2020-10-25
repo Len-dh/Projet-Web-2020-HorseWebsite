@@ -4,11 +4,11 @@ import { RegistrationService } from '../registration.service';
 import { User } from '../user';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-login-user',
+  templateUrl: './login-user.component.html',
+  styleUrls: ['./login-user.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class LoginUserComponent implements OnInit {
   
   user = new User();
   hide = false;

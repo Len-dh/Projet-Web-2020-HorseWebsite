@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+import { LoginUserComponent } from './login-user/login-user.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AccountRecoveryComponent } from './account-recovery/account-recovery.component';
 import { UserHomepageComponent } from './user-homepage/user-homepage.component';
@@ -17,7 +17,7 @@ import { AccountManagementComponent } from './account-management/account-managem
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login-user', component: LoginUserComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'account-recovery', component: AccountRecoveryComponent },
   { path: 'user-homepage', component: UserHomepageComponent },
