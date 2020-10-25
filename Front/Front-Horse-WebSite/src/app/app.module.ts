@@ -25,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { HomeComponent } from './home/home.component';
 import { LoginUserComponent } from './login-user/login-user.component';
@@ -45,6 +46,10 @@ import { AccountManagementComponent } from './account-management/account-managem
 import { LoginInstructorComponent } from './login-instructor/login-instructor.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { LoginSuperAdminComponent } from './login-super-admin/login-super-admin.component';
+import { LessonsManagementComponent } from './lessons-management/lessons-management.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
+import { LessonsCreationComponent } from './lessons-creation/lessons-creation.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +72,9 @@ import { LoginSuperAdminComponent } from './login-super-admin/login-super-admin.
     AccountManagementComponent,
     LoginInstructorComponent,
     LoginAdminComponent,
-    LoginSuperAdminComponent
+    LoginSuperAdminComponent,
+    LessonsManagementComponent,
+    LessonsCreationComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +105,10 @@ import { LoginSuperAdminComponent } from './login-super-admin/login-super-admin.
     HttpClientModule,
     MatGridListModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent],
