@@ -10,6 +10,7 @@ import { InstructorHomepageComponent } from './instructor-homepage/instructor-ho
 import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
 import { HorsesManagementComponent } from './horses-management/horses-management.component';
 import { UsersManagementComponent } from './users-management/users-management.component';
+import { SuperAdminHomepageComponent } from './super-admin-homepage/super-admin-homepage.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'admin-homepage', component: AdminHomepageComponent },
   { path: 'horses-management', component: HorsesManagementComponent },
   { path: 'users-management', component: UsersManagementComponent },
+  { path: 'super-admin-homepage', component: SuperAdminHomepageComponent },
 
 ];
 
@@ -29,4 +31,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
