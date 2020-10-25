@@ -1,0 +1,50 @@
+<mat-card class="mat-elevation-z5">
+    <mat-card-content>
+        <form [formGroup]="form">
+            <h2>Gestion de mon compte</h2>
+            <mat-error *ngIf="loginInvalid">
+                L'adresse email et le mot de passe ne sont pas valides
+            </mat-error>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Nom" formControlName="lastname" required>
+                <mat-error>
+                    Le nom n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Prénom" formControlName="firstname" required>
+                <mat-error>
+                    Le prénom n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Email" formControlName="email" required>
+                <mat-error>
+                    L'adresse email n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Numéro de téléphone" formControlName="phone" required>
+                <mat-error>
+                    Le numéro de téléphone n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Numéro de license" formControlName="license" required>
+                <mat-error>
+                    Le numéro de license n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput type="password" placeholder="Mot de passe" [type]="!hide ? 'password' : 'text'" formControlName="password" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                  </button>
+                <mat-error>
+                    Le mot de passe n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button class="update">Mettre à jour les informations</button>
+        </form>
+    </mat-card-content>
+</mat-card>
