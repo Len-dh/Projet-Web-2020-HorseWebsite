@@ -16,6 +16,8 @@ import { UsersManagementComponent } from './users-management/users-management.co
 import { SuperAdminHomepageComponent } from './super-admin-homepage/super-admin-homepage.component';
 import { RidingLessonsComponent } from './riding-lessons/riding-lessons.component';
 import { AccountManagementComponent } from './account-management/account-management.component';
+import { LessonsManagementComponent } from './lessons-management/lessons-management.component';
+import { LessonsCreationComponent } from './lessons-creation/lessons-creation.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -34,6 +36,8 @@ const routes: Routes = [
   { path: 'super-admin-homepage', component: SuperAdminHomepageComponent },
   { path: 'riding-lessons', component: RidingLessonsComponent },
   { path: 'account-management', component: AccountManagementComponent },
+  { path: 'lessons-management', component: LessonsManagementComponent },
+  { path: 'lessons-creation', component: LessonsCreationComponent },
 
 ];
 
