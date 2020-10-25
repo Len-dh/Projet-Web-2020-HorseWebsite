@@ -43,6 +43,7 @@ import { RidingLessonsComponent } from './riding-lessons/riding-lessons.componen
 import { LessonsDialogBoxComponent } from './lessons-dialog-box/lessons-dialog-box.component';
 import { AccountManagementComponent } from './account-management/account-management.component';
 import { LoginInstructorComponent } from './login-instructor/login-instructor.component';
+import { LoginAdminComponent } from './login-admin/login-admin.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { LoginInstructorComponent } from './login-instructor/login-instructor.co
     RidingLessonsComponent,
     LessonsDialogBoxComponent,
     AccountManagementComponent,
-    LoginInstructorComponent
+    LoginInstructorComponent,
+    LoginAdminComponent
   ],
   imports: [
     BrowserModule,
