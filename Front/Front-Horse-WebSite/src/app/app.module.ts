@@ -44,6 +44,7 @@ import { LessonsDialogBoxComponent } from './lessons-dialog-box/lessons-dialog-b
 import { AccountManagementComponent } from './account-management/account-management.component';
 import { LoginInstructorComponent } from './login-instructor/login-instructor.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
+import { LoginSuperAdminComponent } from './login-super-admin/login-super-admin.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { LoginAdminComponent } from './login-admin/login-admin.component';
     LessonsDialogBoxComponent,
     AccountManagementComponent,
     LoginInstructorComponent,
-    LoginAdminComponent
+    LoginAdminComponent,
+    LoginSuperAdminComponent
   ],
   imports: [
     BrowserModule,
