@@ -42,6 +42,7 @@ import { SuperAdminHomepageComponent } from './super-admin-homepage/super-admin-
 import { RidingLessonsComponent } from './riding-lessons/riding-lessons.component';
 import { LessonsDialogBoxComponent } from './lessons-dialog-box/lessons-dialog-box.component';
 import { AccountManagementComponent } from './account-management/account-management.component';
+import { LoginInstructorComponent } from './login-instructor/login-instructor.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { AccountManagementComponent } from './account-management/account-managem
     SuperAdminHomepageComponent,
     RidingLessonsComponent,
     LessonsDialogBoxComponent,
-    AccountManagementComponent
+    AccountManagementComponent,
+    LoginInstructorComponent
   ],
   imports: [
     BrowserModule,
