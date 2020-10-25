@@ -41,6 +41,7 @@ import { UsersDialogBoxComponent } from './users-dialog-box/users-dialog-box.com
 import { SuperAdminHomepageComponent } from './super-admin-homepage/super-admin-homepage.component';
 import { RidingLessonsComponent } from './riding-lessons/riding-lessons.component';
 import { LessonsDialogBoxComponent } from './lessons-dialog-box/lessons-dialog-box.component';
+import { AccountManagementComponent } from './account-management/account-management.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { LessonsDialogBoxComponent } from './lessons-dialog-box/lessons-dialog-b
     UsersDialogBoxComponent,
     SuperAdminHomepageComponent,
     RidingLessonsComponent,
-    LessonsDialogBoxComponent
+    LessonsDialogBoxComponent,
+    AccountManagementComponent
   ],
   imports: [
     BrowserModule,
