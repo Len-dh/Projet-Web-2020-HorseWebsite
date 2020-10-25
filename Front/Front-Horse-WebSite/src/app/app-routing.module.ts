@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { LoginInstructorComponent } from './login-instructor/login-instructor.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
+import { LoginSuperAdminComponent } from './login-super-admin/login-super-admin.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AccountRecoveryComponent } from './account-recovery/account-recovery.component';
 import { UserHomepageComponent } from './user-homepage/user-homepage.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'login-user', component: LoginUserComponent },
   { path: 'login-instructor', component: LoginInstructorComponent },
   { path: 'login-admin', component: LoginAdminComponent },
+  { path: 'login-super-admin', component: LoginSuperAdminComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'account-recovery', component: AccountRecoveryComponent },
   { path: 'user-homepage', component: UserHomepageComponent },
