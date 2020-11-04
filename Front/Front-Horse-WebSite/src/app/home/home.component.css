@@ -1,10 +1,15 @@
+* {
+    margin: 0 ;
+    padding:0;
+}
+
 .jumbotron {
     background: linear-gradient(
         rgba(0, 0, 0, 0.5), 
         rgba(0, 0, 0, 0.5)
       ),url('../../assets/img/home_picture.jpg')no-repeat;
     background-size: cover;
-    min-height: 380px;
+    height: 93.1vh;
     text-align: center;
     padding: 10em;
 }
@@ -16,10 +21,11 @@ h1, h2 {
 .login {
     background-color: darkseagreen;
     color:white;
-    min-width: 10em;
-    max-width: 15em;
+    min-width: 15em;
+    max-width: 20em;
     height: 3em;
     margin-right: 10px;
+    margin: 10px;
 }
 
 .register {
