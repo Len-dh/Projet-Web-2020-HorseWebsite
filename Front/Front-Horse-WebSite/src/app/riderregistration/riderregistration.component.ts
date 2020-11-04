@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RegistrationService } from '../registration.service';
-import { User } from '../user';
+import { Rider } from '../rider';
 
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css'],
+  selector: 'app-riderregistration',
+  templateUrl: './riderregistration.component.html',
+  styleUrls: ['./riderregistration.component.css'],
 })
-export class RegistrationComponent implements OnInit {
-  user = new User();
+export class RiderregistrationComponent implements OnInit {
+  rider = new Rider();
   msg = '';
   constructor(private _service: RegistrationService, private _router: Router) {}
 
   ngOnInit(): void {}
 
-  registerUser() {
-    this._service.registerUserFromRemote(this.user).subscribe(
+  registerRider() {
+    this._service.registerRiderFromRemote(this.rider).subscribe(
       (data) => {
         console.log('response recieved');
-        this._router.navigate(['/login']);
+        this._router.navigate(['/loginRider']);
       },
       (error) => {
         console.log('exception occured');

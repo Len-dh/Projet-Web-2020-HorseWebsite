@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RegistrationService } from '../registration.service';
-import { User } from '../user';
+import { WebsiteAdmin } from '../website-admin';
 
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css'],
+  selector: 'app-waregistration',
+  templateUrl: './waregistration.component.html',
+  styleUrls: ['./waregistration.component.css'],
 })
-export class RegistrationComponent implements OnInit {
-  user = new User();
+export class WaregistrationComponent implements OnInit {
+  wa = new WebsiteAdmin();
   msg = '';
   constructor(private _service: RegistrationService, private _router: Router) {}
 
   ngOnInit(): void {}
 
-  registerUser() {
-    this._service.registerUserFromRemote(this.user).subscribe(
+  registerWA() {
+    this._service.registerWebsiteAdministratorFromRemote(this.wa).subscribe(
       (data) => {
         console.log('response recieved');
-        this._router.navigate(['/login']);
+        this._router.navigate(['/loginWA']);
       },
       (error) => {
         console.log('exception occured');
