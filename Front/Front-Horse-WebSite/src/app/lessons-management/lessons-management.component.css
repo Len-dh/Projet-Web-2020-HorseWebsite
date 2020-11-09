@@ -17,12 +17,9 @@ table {
       font-size: medium;
   }
   
-  td, th {
-    width: 25%;
-  }
-  
   button {
       background-color: darkseagreen;
       color: white;
-      margin: 5px;
+      margin-left: 5px;
+      margin-bottom: 15px;
   }
