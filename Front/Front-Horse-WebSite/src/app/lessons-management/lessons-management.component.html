@@ -1,12 +1,11 @@
 <mat-card class="mat-elevation-z5">
     <mat-card-content>
+        <button mat-button routerLink="/lessons-creation" class="creation">Créer un nouveau cours</button>
+
         <mat-form-field>
             <mat-label>Recherche</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Galop 2" #input>
         </mat-form-field>
-
-        <button mat-button href mat-flat-button>Enregistrer les changements</button>
-        <button mat-button routerLink="/lessons-creation" class="creation">Créer un nouveau cours</button>
 
         <div class="mat-elevation-z8">
             <table mat-table [dataSource]="dataSource" matSort>
