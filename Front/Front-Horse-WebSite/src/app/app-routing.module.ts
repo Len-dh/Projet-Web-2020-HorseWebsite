@@ -18,6 +18,17 @@ import { RidingLessonsComponent } from './riding-lessons/riding-lessons.componen
 import { AccountManagementComponent } from './account-management/account-management.component';
 import { LessonsManagementComponent } from './lessons-management/lessons-management.component';
 import { LessonsCreationComponent } from './lessons-creation/lessons-creation.component';
+<<<<<<< HEAD
+=======
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { AdminregistrationComponent } from './adminregistration/adminregistration.component';
+import { HiloginComponent } from './hilogin/hilogin.component';
+import { HiregistrationComponent } from './hiregistration/hiregistration.component';
+import { RiderloginComponent } from './riderlogin/riderlogin.component';
+import { RiderregistrationComponent } from './riderregistration/riderregistration.component';
+import { WaloginComponent } from './walogin/walogin.component';
+import { WaregistrationComponent } from './waregistration/waregistration.component';
+>>>>>>> 7637016... Fusion of back and front
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -38,7 +49,18 @@ const routes: Routes = [
   { path: 'account-management', component: AccountManagementComponent },
   { path: 'lessons-management', component: LessonsManagementComponent },
   { path: 'lessons-creation', component: LessonsCreationComponent },
+<<<<<<< HEAD
 
+=======
+  { path: 'loginAdmin', component: AdminloginComponent },
+  { path: 'loginHI', component: HiloginComponent },
+  { path: 'loginRider', component: RiderloginComponent },
+  { path: 'loginWA', component: WaloginComponent },
+  { path: 'registeradmin', component: AdminregistrationComponent },
+  { path: 'registerHI', component: HiregistrationComponent },
+  { path: 'registerRider', component: RiderregistrationComponent },
+  { path: 'registerWA', component: WaregistrationComponent },
+>>>>>>> 7637016... Fusion of back and front
 ];
 
 @NgModule({

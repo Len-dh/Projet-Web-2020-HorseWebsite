@@ -50,6 +50,17 @@ import { LessonsManagementComponent } from './lessons-management/lessons-managem
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { LessonsCreationComponent } from './lessons-creation/lessons-creation.component';
+<<<<<<< HEAD
+=======
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { AdminregistrationComponent } from './adminregistration/adminregistration.component';
+import { HiloginComponent } from './hilogin/hilogin.component';
+import { HiregistrationComponent } from './hiregistration/hiregistration.component';
+import { RiderloginComponent } from './riderlogin/riderlogin.component';
+import { RiderregistrationComponent } from './riderregistration/riderregistration.component';
+import { WaloginComponent } from './walogin/walogin.component';
+import { WaregistrationComponent } from './waregistration/waregistration.component';
+>>>>>>> 7637016... Fusion of back and front
 
 @NgModule({
   declarations: [
@@ -74,7 +85,19 @@ import { LessonsCreationComponent } from './lessons-creation/lessons-creation.co
     LoginAdminComponent,
     LoginSuperAdminComponent,
     LessonsManagementComponent,
+<<<<<<< HEAD
     LessonsCreationComponent
+=======
+    LessonsCreationComponent,
+    AdminloginComponent,
+    AdminregistrationComponent,
+    HiloginComponent,
+    HiregistrationComponent,
+    RiderloginComponent,
+    RiderregistrationComponent,
+    WaloginComponent,
+    WaregistrationComponent
+>>>>>>> 7637016... Fusion of back and front
   ],
   imports: [
     BrowserModule,

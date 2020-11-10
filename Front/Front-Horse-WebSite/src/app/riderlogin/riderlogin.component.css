@@ -1,0 +1,26 @@
+mat-card {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+}
+
+mat-form-field {
+  display: block;
+}
+
+.login {
+  background-color: darkseagreen;
+  color: white;
+  width: 10em;
+  height: 3em;
+  margin: 10px;
+}
+
+.register {
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+.recovery {
+  font-size: 13px;
+}

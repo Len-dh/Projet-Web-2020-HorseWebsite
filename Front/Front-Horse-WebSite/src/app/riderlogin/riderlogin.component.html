@@ -1,0 +1,44 @@
+<mat-card class="mat-elevation-z5">
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="loginRider()">
+      <h2>Se connecter</h2>
+      <h4>Cavalier</h4>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          placeholder="Email"
+          [(ngModel)]="rider.riderEmailId"
+          [ngModelOptions]="{ standalone: true }"
+          required
+        />
+        <mat-error> L'adresse email n'est pas valide </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input
+          matInput
+          type="password"
+          placeholder="Mot de passe"
+          [type]="!hide ? 'password' : 'text'"
+          [(ngModel)]="rider.riderPassword"
+          [ngModelOptions]="{ standalone: true }"
+          required
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-error> Le mot de passe n'est pas valide </mat-error>
+      </mat-form-field>
+      <button mat-raised-button class="login" type="submit">
+        Se connecter
+      </button>
+    </form>
+    <a href="registerRider" class="register">S'inscrire</a>
+    <a href="account-recovery" class="recovery">Mot de passe oublié ?</a>
+  </mat-card-content>
+</mat-card>
