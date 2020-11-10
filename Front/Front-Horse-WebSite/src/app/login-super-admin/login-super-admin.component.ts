@@ -4,12 +4,12 @@ import { RegistrationService } from '../registration.service';
 import { User } from '../user';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-login-super-admin',
+  templateUrl: './login-super-admin.component.html',
+  styleUrls: ['./login-super-admin.component.css']
 })
-export class LoginComponent implements OnInit {
-  
+export class LoginSuperAdminComponent implements OnInit {
+
   user = new User();
   hide = false;
 
@@ -18,9 +18,9 @@ export class LoginComponent implements OnInit {
     password: new FormControl('')
   });
 
-  constructor(private _service: RegistrationService) {}
+  constructor(private _service: RegistrationService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   loginUser() {
     this._service.loginUserFromRemote(this.user).subscribe(

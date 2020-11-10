@@ -1,0 +1,40 @@
+<mat-card class="mat-elevation-z5">
+    <mat-card-content>
+        <form>
+            <h2>Créer un cours</h2>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Titre du cours (optionnel)">
+                <mat-error>
+                    Le titre du cours n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Choisir une date</mat-label>
+                <input matInput [matDatepicker]="dp" required>
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="time" class="bg-none" formControlName="_time" placeholder="Heure de début" required>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput type="number" placeholder="Nombre de cavaliers" required>
+                <mat-error>
+                    Le nombre de cavaliers n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput type="number" placeholder="Niveau (Galop)" required>
+                <mat-error>
+                    Le niveau n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <label id="radio-group-recurrent">Cours récurrent : </label>
+            <mat-radio-group aria-labelledby="recurrent" class="recurrent">
+                <mat-radio-button value="1">Oui</mat-radio-button>
+                <mat-radio-button value="2">Non</mat-radio-button>
+            </mat-radio-group>
+            <button mat-raised-button class="save">Sauvegarder le cours</button>
+        </form>
+    </mat-card-content>
+</mat-card>
