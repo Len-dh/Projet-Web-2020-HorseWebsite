@@ -1,7 +1,7 @@
 <mat-card class="mat-elevation-z5">
   <mat-card-content>
     <form [formGroup]="loginForm" (ngSubmit)="registerAdmin()">
-      <h2>S'inscrire</h2>
+      <h2>Ajouter un administrateur</h2>
       <mat-form-field class="full-width-input">
         <input
           matInput
@@ -63,7 +63,7 @@
         </button>
         <mat-error> Le mot de passe n'est pas valide </mat-error>
       </mat-form-field>
-      <button mat-raised-button class="register">S'authentifier</button>
+      <button mat-raised-button class="register">Ajouter</button>
     </form>
   </mat-card-content>
 </mat-card>

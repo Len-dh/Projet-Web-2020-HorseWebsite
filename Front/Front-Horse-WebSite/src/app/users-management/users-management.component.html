@@ -5,8 +5,8 @@
             <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
         </mat-form-field>
 
-        <button mat-button (click)="openDialog('Ajouter',{})" mat-flat-button>Ajouter un administrateur</button>
-        <button mat-button (click)="openDialog('Ajouter',{})" mat-flat-button>Ajouter un moniteur</button>
+        <button mat-button routerLink="/registeradmin" mat-flat-button>Ajouter un administrateur</button>
+        <button mat-button routerLink="/registerHI" mat-flat-button>Ajouter un moniteur</button>
 
 
         <div class="mat-elevation-z8">
