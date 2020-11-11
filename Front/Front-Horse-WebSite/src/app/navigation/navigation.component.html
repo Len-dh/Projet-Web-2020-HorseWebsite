@@ -6,10 +6,16 @@
         </button>
     </span>
     <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-        <button mat-button routerLink="/login" *ngIf="!isAuthenticated">
+        <button mat-button [matMenuTriggerFor]="menu" *ngIf="!isAuthenticated">
             <mat-icon>power_settings_new</mat-icon>
             Se connecter
         </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/loginRider">Cavalier</button>
+            <button mat-menu-item routerLink="/loginHI">Moniteur</button>
+            <button mat-menu-item routerLink="/loginAdmin">Administrateur</button>
+            <button mat-menu-item routerLink="/loginWA">Super Administrateur</button>
+        </mat-menu>
         <button mat-button *ngIf="isAuthenticated">
             <mat-icon>exit_to_app</mat-icon>
             Se déconnecter
