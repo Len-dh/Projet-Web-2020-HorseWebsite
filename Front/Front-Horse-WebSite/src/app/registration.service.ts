@@ -6,6 +6,7 @@ import { Admin } from './admin';
 import { HorseInstructor } from './horse-instructor';
 import { Rider } from './rider';
 import { WebsiteAdmin } from './website-admin';
+import { Horse } from './horse';
 
 @Injectable({
   providedIn: 'root',
@@ -57,5 +58,9 @@ export class RegistrationService {
     wb: WebsiteAdmin
   ): Observable<any> {
     return this._http.post('http://localhost:8080/registerWA', wb);
+  }
+
+  public registerHorseFromRemote(horse: Horse): Observable<any> {
+    return this._http.post('http://localhost:8080/creationHorse', horse);
   }
 }

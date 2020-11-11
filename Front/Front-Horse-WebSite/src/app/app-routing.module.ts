@@ -26,6 +26,7 @@ import { RiderloginComponent } from './riderlogin/riderlogin.component';
 import { RiderregistrationComponent } from './riderregistration/riderregistration.component';
 import { WaloginComponent } from './walogin/walogin.component';
 import { WaregistrationComponent } from './waregistration/waregistration.component';
+import { HorsesCreationComponent } from './horses-creation/horses-creation.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'instructor-homepage', component: InstructorHomepageComponent },
   { path: 'admin-homepage', component: AdminHomepageComponent },
   { path: 'horses-management', component: HorsesManagementComponent },
+  { path: 'horses-creation', component: HorsesCreationComponent },
   { path: 'users-management', component: UsersManagementComponent },
   { path: 'super-admin-homepage', component: SuperAdminHomepageComponent },
   { path: 'riding-lessons', component: RidingLessonsComponent },

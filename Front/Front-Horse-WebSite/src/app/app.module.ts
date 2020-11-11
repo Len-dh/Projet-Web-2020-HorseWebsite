@@ -58,6 +58,7 @@ import { RiderloginComponent } from './riderlogin/riderlogin.component';
 import { RiderregistrationComponent } from './riderregistration/riderregistration.component';
 import { WaloginComponent } from './walogin/walogin.component';
 import { WaregistrationComponent } from './waregistration/waregistration.component';
+import { HorsesCreationComponent } from './horses-creation/horses-creation.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { WaregistrationComponent } from './waregistration/waregistration.compone
     RiderloginComponent,
     RiderregistrationComponent,
     WaloginComponent,
-    WaregistrationComponent
+    WaregistrationComponent,
+    HorsesCreationComponent
   ],
   imports: [
     BrowserModule,
