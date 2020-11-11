@@ -1,11 +1,15 @@
 import { Component, Inject, Optional } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-export interface UsersData {
-  name: string;
-  id: number;
+export interface UserData {
+  id: string;
+  lastname: string;
+  surname: string;
+  email: string;
+  phone: string;
+  type: string;
+  license: string;
 }
-
 
 @Component({
   selector: 'users-app-dialog-box',
@@ -19,19 +23,10 @@ export class UsersDialogBoxComponent {
 
   constructor(
     public dialogRef: MatDialogRef<UsersDialogBoxComponent>,
-    //@Optional() is used to prevent error if no data is passed
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: UsersData) {
-    console.log(data);
-    this.local_data = { ...data };
-    this.action = this.local_data.action;
-  }
+    @Inject(MAT_DIALOG_DATA) public data: UserData) {}
 
-  doAction() {
-    this.dialogRef.close({ event: this.action, data: this.local_data });
-  }
-
-  closeDialog() {
-    this.dialogRef.close({ event: 'Annuler' });
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

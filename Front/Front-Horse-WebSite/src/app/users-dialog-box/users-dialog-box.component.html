@@ -1,13 +1,24 @@
-<h1 mat-dialog-title>Action : <strong>{{action}}</strong></h1>
+<h1 mat-dialog-title>Fiche de renseignements de : <strong>{{data.lastname}} {{data.surname}}</strong></h1>
 <div mat-dialog-content>
-    <mat-form-field *ngIf="action != 'Supprimer'; else elseTemplate">
-        <input placeholder="{{action}} Nom" matInput [(ngModel)]="local_data.name">
-    </mat-form-field>
-    <ng-template #elseTemplate>
-        Etes vous sûr de vouloir supprimer <b>{{local_data.name}}</b>?
-    </ng-template>
+    <mat-grid-list cols="2" rowHeight="1:1">
+        <mat-grid-tile>
+            <div>
+                <mat-grid-tile-header [style.background]="'darkseagreen'">Coordonnées</mat-grid-tile-header>
+                <p>Nom : <strong>{{data.lastname}}</strong></p>
+                <p>Prénom : <strong>{{data.surname}}</strong></p>
+                <p>Adresse email : <strong>{{data.email}}</strong></p>
+                <p>Numéro de téléphone : <strong>{{data.phone}}</strong></p>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div>
+                <mat-grid-tile-header>Informations</mat-grid-tile-header>
+                <p>Type : <strong>{{data.type}}</strong></p>
+                <p>Numéro de licence : <strong>{{data.license}}</strong></p>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="doAction()">{{action}}</button>
-    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Annuler</button>
+    <button mat-button (click)="onNoClick()">Fermer</button>
 </div>
