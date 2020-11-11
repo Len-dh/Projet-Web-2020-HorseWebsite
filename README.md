@@ -1,6 +1,6 @@
 # Projet-Web-2020-HorseWebsite
 
-Pour se connecter en administrateur, il faut : 
+Pour se connecter en tant qu'administrateur, il faut : 
 
 1 - Ouvrir Intellij à partir de Projet-Web-2020-HorseWebsite-front/Back/Horse-Projet-5A-2020. 
 Puis accéder à la base de donnée après avoir activer l'application "HorseProjet5A2020Application" en faisant un click droit et
