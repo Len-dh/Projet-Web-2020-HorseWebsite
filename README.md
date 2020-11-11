@@ -12,8 +12,11 @@ Vous accéderer à la page suivante :
 (mettre une image) 
 
 3 - Créer un Administrateur avec la ligne de code suivante dans la base de donnée : 
+
 INSERT INTO WEBSITE_ADMIN  VALUES('id', 'email', 'nom', 'prénom', 'mdp', 'numéro de téléphone');
+
 Puis pour visualiser le remplissage de la table : 
+
 SELECT * FROM WEBSITE_ADMIN 
 
 (mettre une image) 
