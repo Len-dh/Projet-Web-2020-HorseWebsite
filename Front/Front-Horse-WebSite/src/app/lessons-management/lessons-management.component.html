@@ -9,16 +9,11 @@
 
         <div class="mat-elevation-z8">
             <table mat-table [dataSource]="dataSource" matSort>
-                <!-- Id Column -->
-                <ng-container matColumnDef="idLesson">
-                    <th mat-header-cell *matHeaderCellDef> Id </th>
-                    <td mat-cell *matCellDef="let element"> {{element.idCourse}} </td>
-                </ng-container>
 
                 <!-- Schedules Column -->
                 <ng-container matColumnDef="schedules">
-                    <th mat-header-cell *matHeaderCellDef> Horaire </th>
-                    <td mat-cell *matCellDef="let element"> {{ element.schedules | date:'dd/MM/yy à HH:mm' }} </td>
+                    <th mat-header-cell *matHeaderCellDef> Horaires </th>
+                    <td mat-cell *matCellDef="let element"> Le {{ element.date | date:'dd/MM/yy' }} de {{ element.schedulesStart | date:'HH:mm' }} à {{ element.schedulesEnd | date:'HH:mm' }} </td>
                 </ng-container>
 
                 <!-- Groupe size Column -->
@@ -27,6 +22,12 @@
                     <td mat-cell *matCellDef="let element"> {{element.groupSize}} éleves </td>
                 </ng-container>
 
+                <!-- Instructor Column -->
+                <ng-container matColumnDef="instructor">
+                    <th mat-header-cell *matHeaderCellDef> Moniteur </th>
+                    <td mat-cell *matCellDef="let element"> {{element.instructor}} </td>
+                </ng-container>
+                
                 <!-- Level Column -->
                 <ng-container matColumnDef="level">
                     <th mat-header-cell *matHeaderCellDef> Niveau </th>
@@ -37,12 +38,6 @@
                 <ng-container matColumnDef="recurrence">
                     <th mat-header-cell *matHeaderCellDef> Récurrent </th>
                     <td mat-cell *matCellDef="let element"> {{element.recurrence}} </td>
-                </ng-container>
-
-                <!-- Instructor Column -->
-                <ng-container matColumnDef="instructor">
-                    <th mat-header-cell *matHeaderCellDef> Moniteur </th>
-                    <td mat-cell *matCellDef="let element"> {{element.instructor}} </td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

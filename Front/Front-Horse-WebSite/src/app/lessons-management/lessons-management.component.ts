@@ -6,7 +6,9 @@ import { MatDialog } from '@angular/material/dialog';
 
 export interface LessonData {
   idCourse: number;
-  schedules: Date;
+  date: Date;
+  schedulesStart: Date;
+  schedulesEnd: Date;
   groupSize: number;
   level: number;
   instructor: string;
@@ -25,7 +27,7 @@ const INSTRUCTORS: string[] = [
 })
 export class LessonsManagementComponent implements AfterViewInit {
   
-  displayedColumns: string[] = ['idLesson', 'schedules', 'groupSize', 'level', 'recurrence', 'instructor'];
+  displayedColumns: string[] = ['schedules', 'level', 'instructor', 'groupSize', 'recurrence'];
   dataSource: MatTableDataSource<LessonData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -57,7 +59,8 @@ export class LessonsManagementComponent implements AfterViewInit {
 /** Builds and returns a new Course. */
 
 function createNewLesson(id: number): LessonData {
-  const schedules = new Date('October 13, 2020 14:00:00');
+  const schedulesStart = new Date('October 13, 2020 14:00:00');
+  const schedulesEnd = new Date('October 13, 2020 16:00:00');
   const groupSize = Math.round(Math.random() * (11 - 1) + 1);
   const level = Math.round(Math.random() * (8 - 1) + 1);
   const instructor = INSTRUCTORS[Math.round(Math.random() * (INSTRUCTORS.length - 1))];
@@ -70,7 +73,9 @@ function createNewLesson(id: number): LessonData {
   }
   return {
     idCourse: id,
-    schedules: schedules,
+    date: schedulesStart,
+    schedulesStart: schedulesStart,
+    schedulesEnd: schedulesEnd,
     groupSize: groupSize,
     level: level,
     instructor: instructor,
