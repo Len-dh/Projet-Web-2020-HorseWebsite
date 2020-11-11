@@ -3,17 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-
-export interface LessonData {
-  idCourse: number;
-  date: Date;
-  schedulesStart: Date;
-  schedulesEnd: Date;
-  groupSize: number;
-  level: number;
-  instructor: string;
-  recurrence: string;
-}
+import { Lesson } from '../lesson';
 
 const INSTRUCTORS: string[] = [
   'James', 'Ben', 'Laura'
@@ -26,14 +16,14 @@ const INSTRUCTORS: string[] = [
 
 })
 export class LessonsManagementComponent implements AfterViewInit {
-  
+  ELEMENT_DATA: Lesson[] = [];
   displayedColumns: string[] = ['schedules', 'level', 'instructor', 'groupSize', 'recurrence'];
-  dataSource: MatTableDataSource<LessonData>;
+  dataSource: MatTableDataSource<Lesson>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public dialog: MatDialog) { 
+  constructor(public dialog: MatDialog) {
     // Create 100 courses
     const courses = Array.from({ length: 100 }, (_, k) => createNewLesson(k + 1));
 
@@ -58,7 +48,7 @@ export class LessonsManagementComponent implements AfterViewInit {
 
 /** Builds and returns a new Course. */
 
-function createNewLesson(id: number): LessonData {
+function createNewLesson(id: number): Lesson {
   const schedulesStart = new Date('October 13, 2020 14:00:00');
   const schedulesEnd = new Date('October 13, 2020 16:00:00');
   const groupSize = Math.round(Math.random() * (11 - 1) + 1);
@@ -72,13 +62,13 @@ function createNewLesson(id: number): LessonData {
     var recurrenceString = 'Oui';
   }
   return {
-    idCourse: id,
-    date: schedulesStart,
-    schedulesStart: schedulesStart,
-    schedulesEnd: schedulesEnd,
-    groupSize: groupSize,
-    level: level,
-    instructor: instructor,
-    recurrence: recurrenceString
+    lessonId: id,
+    lessonDate: schedulesStart,
+    lessonStart: schedulesStart,
+    lessonEnd: schedulesEnd,
+    lessonGroupSize: groupSize,
+    lessonLevel: level,
+    lessonInstructor: instructor,
+    lessonRecurrence: recurrenceString
   };
 }
