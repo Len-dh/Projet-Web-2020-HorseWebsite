@@ -31,3 +31,7 @@ button {
 ::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
     background-color: darkseagreen !important;
 }
+
+.mat-card-title {
+    text-align: center;
+  }
