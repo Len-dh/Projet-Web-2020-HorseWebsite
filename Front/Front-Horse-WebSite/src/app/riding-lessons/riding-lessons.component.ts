@@ -74,6 +74,7 @@ function createNewLesson(id: number): Lesson {
   }
   return {
     lessonId: id,
+    lessonTitle: "titre",
     lessonDate: schedulesStart,
     lessonStart: schedulesStart,
     lessonEnd: schedulesEnd,

@@ -35,7 +35,7 @@ mat-form-field {
     height: 3em;
 }
 
-.mat-radio-button ~ .mat-radio-button {
+.mat-checkbox ~ .mat-checkbox {
     margin-left: 16px;
 }
 
@@ -43,15 +43,14 @@ body {
     color: rgb(219, 0, 0);
 }
 
-::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
-    background-color: darkseagreen;
-}
-
-::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
-    background-color:darkseagreen;
-}
-::ng-deep  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+::ng-deep .mat-checkbox .mat-checkbox-frame {
     border-color: darkseagreen;
+}
+::ng-deep .mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: darkseagreen !important;
+}
+::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+    background-color: darkseagreen !important;
 }
 
 .recurrent {
