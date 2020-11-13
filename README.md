@@ -7,9 +7,7 @@ Puis accéder à la base de donnée après avoir activer l'application "HorsePro
 en sélectionnant "run Projet5A2020Application main()". 
 
 2 - Ouvrir un onglet dans un navigateur et écrire : http://localhost:8080/h2-console
-Vous accéderer à la page suivante : 
-
-(mettre une image) 
+ 
 
 3 - Créer un Administrateur avec la ligne de code suivante dans la base de donnée : 
 
@@ -19,8 +17,6 @@ Puis pour visualiser le remplissage de la table :
 
 SELECT * FROM WEBSITE_ADMIN 
 
-(mettre une image) 
-
 4 - Maintenant, il faut activer le front à partir de VSCode dans le repertory suivant :
 Projet-Web-2020-HorseWebsite-front/Front/Front-Horse-WebSite
 Puis activer le serveur dans le terminal avec la commande : 
@@ -28,8 +24,6 @@ ng serve
 
 Ensuite, pour voir votre compte, il vous suffit d'aller sur la page d'acceuil du site, 
 cliquer sur le le bouton "Administrateur" et remplir le formulaire d'authentification pour pouvoir accéder à votre page. 
-
-(Mettre une image)
 
 A partir de la page d'acceuil, vous pouvez accéder à la création de compte d'un cavalier, d'un moniteur ou d'un administrateur. 
 A vous de jouer :)
