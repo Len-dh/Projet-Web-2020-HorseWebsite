@@ -9,39 +9,38 @@
         <div class="mat-elevation-z8">
             <table mat-table [dataSource]="dataSource" matSort>
 
-                <!-- Id Column -->
-                <ng-container matColumnDef="idLesson">
-                    <th mat-header-cell *matHeaderCellDef> Id </th>
-                    <td mat-cell *matCellDef="let element"> {{element.lessonId}} </td>
+                <!-- Schedules Column -->
+                <ng-container matColumnDef="lessonDate">
+                    <th mat-header-cell *matHeaderCellDef> Horaires </th>
+                    <td mat-cell *matCellDef="let element"> Le {{ element.lessonDate | date:'dd/MM/yy' }} de {{ element.lessonStart | date:'HH:mm' }} à {{ element.lessonEnd | date:'HH:mm' }} </td>
                 </ng-container>
 
-                <!-- Schedules Column -->
-                <ng-container matColumnDef="schedules">
-                    <th mat-header-cell *matHeaderCellDef> Horaires </th>
-                    <td mat-cell *matCellDef="let element"> Le {{ element.lessonDate | date:'dd/MM/yy' }} de
-                        {{ element.lessonStart | date:'HH:mm' }} à {{ element.lessonEnd | date:'HH:mm' }} </td>
+                <!-- Title Column -->
+                <ng-container matColumnDef="lessonTitle">
+                    <th mat-header-cell *matHeaderCellDef> Titre </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.lessonTitle }} </td>
                 </ng-container>
 
                 <!-- Groupe size Column -->
-                <ng-container matColumnDef="groupSize">
+                <ng-container matColumnDef="lessonGroupSize">
                     <th mat-header-cell *matHeaderCellDef> Taille du groupe </th>
                     <td mat-cell *matCellDef="let element"> {{element.lessonGroupSize}} éleves </td>
                 </ng-container>
 
                 <!-- Instructor Column -->
-                <ng-container matColumnDef="instructor">
+                <ng-container matColumnDef="lessonInstructor">
                     <th mat-header-cell *matHeaderCellDef> Moniteur </th>
                     <td mat-cell *matCellDef="let element"> {{element.lessonInstructor}} </td>
                 </ng-container>
-
+                
                 <!-- Level Column -->
-                <ng-container matColumnDef="level">
+                <ng-container matColumnDef="lessonLevel">
                     <th mat-header-cell *matHeaderCellDef> Niveau </th>
                     <td mat-cell *matCellDef="let element"> Galop {{element.lessonLevel}} </td>
                 </ng-container>
 
                 <!-- Recurrence Column -->
-                <ng-container matColumnDef="recurrence">
+                <ng-container matColumnDef="lessonRecurrence">
                     <th mat-header-cell *matHeaderCellDef> Récurrent </th>
                     <td mat-cell *matCellDef="let element"> {{element.lessonRecurrence}} </td>
                 </ng-container>

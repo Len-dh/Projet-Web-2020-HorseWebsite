@@ -11,26 +11,15 @@ import { LessonService } from '../lesson.service';
   styleUrls: ['./lessons-creation.component.css']
 })
 export class LessonsCreationComponent implements OnInit {
-
-  createLessonForm: FormGroup;
   lesson = new Lesson();
   msg = '';
   recurrent = false;
 
-  constructor(private _formBuilder: FormBuilder, private _adapter: DateAdapter<any>, private _service: LessonService, private _router: Router) { }
+  constructor(private _adapter: DateAdapter<any>, private _service: LessonService, private _router: Router) { }
 
-  ngOnInit(): void {
-    this._adapter.setLocale('fr');
-    this.createLessonForm = this._formBuilder.group ({
-      lessonTitle: [''],
-      lessonDate: ['', Validators.required],
-      lessonStart: ['', Validators.required],
-      lessonEnd: ['', Validators.required],
-      lessonGroupSize: ['', Validators.required],
-      lessonLevel: ['', Validators.required],
-      lessonRecurrence: ['', Validators.required],
-    });
-  }
+  ngOnInit(): void {}
+
+  createLessonForm: FormGroup = new FormGroup({ });
 
   createLesson() {
     this._service.createLesson(this.lesson).subscribe(
@@ -43,9 +32,5 @@ export class LessonsCreationComponent implements OnInit {
         this.msg = 'error of your registration';
       }
     );
-  }
-
-  toggle(event){
-    this.recurrent = event.checked;
   }
 }

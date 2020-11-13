@@ -3,37 +3,91 @@
         <form [formGroup]="createLessonForm" (ngSubmit)="createLesson()">
             <h2>Créer un cours</h2>
             <mat-form-field class="full-width-input">
-                <input matInput placeholder="Titre du cours (optionnel)" formControlName="lessonTitle">
-                <mat-error>
-                    Le titre du cours n'est pas valide
-                </mat-error>
+                <input
+                  matInput
+                  placeholder="Titre du cours (optionnel)"
+                  [(ngModel)]="lesson.lessonTitle"
+                  [ngModelOptions]="{ standalone: true }"
+                  required
+                />
+                <mat-error> Le titre n'est pas valide </mat-error>
             </mat-form-field>
-            <mat-form-field>
-                <mat-label>Choisir une date</mat-label>
-                <input matInput [matDatepicker]="dp" required formControlName="lessonDate">
+
+            <mat-form-field class="full-width-input">
+                <input
+                  matInput
+                  placeholder="Date"
+                  [(ngModel)]="lesson.lessonDate"
+                  [matDatepicker]="dp"
+                  [ngModelOptions]="{ standalone: true }"
+                  required
+                />
                 <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
                 <mat-datepicker #dp></mat-datepicker>
+                <mat-error> La date n'est pas valide </mat-error>
             </mat-form-field>
-            <mat-form-field>
-                <input matInput type="time" class="bg-none" formControlName="lessonStart" placeholder="Heure de début" required>
+
+            <!--<mat-form-field class="full-width-input">
+                <input
+                  matInput
+                  type="time"
+                  class="bg-none"
+                  placeholder="Heure de début"
+                  [(ngModel)]="lesson.lessonStart"
+                  [ngModelOptions]="{ standalone: true }"
+                  required
+                />
+                <mat-error> L'heure de début n'est pas valide </mat-error>
             </mat-form-field>
-            <mat-form-field>
-                <input matInput type="time" class="bg-none" formControlName="lessonEnd" placeholder="Heure de fin" required>
-            </mat-form-field>
+
             <mat-form-field class="full-width-input">
-                <input matInput type="number" placeholder="Nombre de cavaliers" formControlName="lessonGroupSize" required>
-                <mat-error>
-                    Le nombre de cavaliers n'est pas valide
-                </mat-error>
-            </mat-form-field>
+                <input
+                  matInput
+                  type="time"
+                  class="bg-none"
+                  placeholder="Heure de fin"
+                  [(ngModel)]="lesson.lessonEnd"
+                  [ngModelOptions]="{ standalone: true }"
+                  required
+                />
+                <mat-error> L'heure de début n'est pas valide </mat-error>
+            </mat-form-field>-->
+
             <mat-form-field class="full-width-input">
-                <input matInput type="number" placeholder="Niveau (Galop)" formControlName="lessonLevel" min="1" max="7" required>
-                <mat-error>
-                    Le niveau n'est pas valide
-                </mat-error>
+                <input
+                  matInput
+                  type="number"
+                  placeholder="Nombre de cavaliers"
+                  [(ngModel)]="lesson.lessonGroupSize"
+                  [ngModelOptions]="{ standalone: true }"
+                  required
+                />
+                <mat-error> Le nombre de cavaliers n'est pas valide </mat-error>
             </mat-form-field>
-            <mat-checkbox (change)="toggle($event)" class="recurrent" labelPosition="before" formControlName="lessonRecurrence">Cours récurrent : </mat-checkbox>
-            <br/>
+
+            <mat-form-field class="full-width-input">
+                <input
+                  matInput
+                  type="number"
+                  min="1" max="7"
+                  placeholder="Niveau (Galop)"
+                  [(ngModel)]="lesson.lessonLevel"
+                  [ngModelOptions]="{ standalone: true }"
+                  required
+                />
+                <mat-error> Le niveau n'est pas valide </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+                <input
+                  matInput
+                  placeholder="Récurrence du cours (oui ou non)"
+                  [(ngModel)]="lesson.lessonRecurrence"
+                  [ngModelOptions]="{ standalone: true }"
+                  required
+                />
+                <mat-error> La récurrence n'est pas valide </mat-error>
+            </mat-form-field>
             <button mat-raised-button class="save">Créer le cours</button>
         </form>
     </mat-card-content>

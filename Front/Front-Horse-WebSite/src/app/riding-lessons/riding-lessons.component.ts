@@ -5,10 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { LessonsDialogBoxComponent } from '../lessons-dialog-box/lessons-dialog-box.component';
 import { Lesson } from '../lesson';
-
-const INSTRUCTORS: string[] = [
-  'James', 'Ben', 'Laura'
-];
+import { LessonService } from '../lesson.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-riding-lessons',
@@ -16,22 +14,18 @@ const INSTRUCTORS: string[] = [
   styleUrls: ['./riding-lessons.component.css']
 })
 export class RidingLessonsComponent implements AfterViewInit {
-
-  ELEMENT_DATA: Lesson[] = [];
-  currentLesson: Lesson[] = [];
-
-  displayedColumns: string[] = ['idLesson', 'schedules', 'level', 'instructor', 'groupSize', 'recurrence', 'action'];
-  dataSource: MatTableDataSource<Lesson>;
+  lessonsList: Lesson[] = [];
+  lessons: Observable<Lesson[]>;
+  displayedColumns: string[] = ['lessonDate', 'lessonTitle', 'lessonLevel', 'lessonInstructor', 'lessonGroupSize', 'lessonRecurrence', 'action'];
+  dataSource = new MatTableDataSource<Lesson>(this.lessonsList);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public dialog: MatDialog) {
-    // Create 100 courses
-    const lessons = Array.from({ length: 100 }, (_, k) => createNewLesson(k + 1));
+  constructor(public dialog: MatDialog, private lessonservice: LessonService) { }
 
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(lessons);
+  ngOnInit(): void {
+    this.lessonservice.getLessonList().subscribe(result => this.initTable(result));
   }
 
   ngAfterViewInit() {
@@ -48,39 +42,17 @@ export class RidingLessonsComponent implements AfterViewInit {
     }
   }
 
+  initTable(list){
+    this.lessonsList = list;
+    this.dataSource = new MatTableDataSource<Lesson>(this.lessonsList);
+    this.dataSource.paginator = this.paginator;
+  }
+
   public isLessonSelected(lessonId) {
-    return this.currentLesson.some(item => item.lessonId === lessonId);
+    //return this.currentLesson.some(item => item.lessonId === lessonId);
   }
 
   public registerForALesson(event: any) {
     //this.lessonService.addLesson(1,parseInt(event.currentTarget.value));
   }
-}
-
-/** Builds and returns a new Lesson. */
-
-function createNewLesson(id: number): Lesson {
-  const schedulesStart = new Date('October 13, 2020 14:00:00');
-  const schedulesEnd = new Date('October 13, 2020 16:00:00');
-  const groupSize = Math.round(Math.random() * (11 - 1) + 1);
-  const level = Math.round(Math.random() * (8 - 1) + 1);
-  const instructor = INSTRUCTORS[Math.round(Math.random() * (INSTRUCTORS.length - 1))];
-  const recurrenceInt = Math.floor(Math.random() * Math.floor(2));
-
-  if (recurrenceInt == 0) {
-    var recurrenceString = 'Non';
-  } else {
-    var recurrenceString = 'Oui';
-  }
-  return {
-    lessonId: id,
-    lessonTitle: "titre",
-    lessonDate: schedulesStart,
-    lessonStart: schedulesStart,
-    lessonEnd: schedulesEnd,
-    lessonGroupSize: groupSize,
-    lessonLevel: level,
-    lessonInstructor: instructor,
-    lessonRecurrence: recurrenceString
-  };
 }
