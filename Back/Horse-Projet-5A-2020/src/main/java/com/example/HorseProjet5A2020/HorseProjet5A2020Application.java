@@ -9,7 +9,6 @@ import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.cors.CorsConfiguration;
 @SpringBootApplication
-@EntityScan(basePackages = {"model"})
 public class HorseProjet5A2020Application {
 
 	public static void main(String[] args) {
