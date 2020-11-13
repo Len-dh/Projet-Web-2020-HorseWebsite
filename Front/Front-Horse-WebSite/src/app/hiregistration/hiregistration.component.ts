@@ -27,7 +27,7 @@ export class HiregistrationComponent implements OnInit {
     this._service.registerHorseInstructorFromRemote(this.hi).subscribe(
       (data) => {
         console.log('response recieved');
-        this._router.navigate(['/loginHI']);
+        this._router.navigate(['/users-management']);
       },
       (error) => {
         console.log('exception occured');
