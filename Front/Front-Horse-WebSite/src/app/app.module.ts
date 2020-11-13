@@ -62,6 +62,14 @@ import { HorsesCreationComponent } from './horses-creation/horses-creation.compo
 import { LessonsPlanningManagementComponent } from './lessons-planning-management/lessons-planning-management.component';
 import { HorseDetailsComponent } from './horse-details/horse-details.component';
 import { HorsesListComponent } from './horses-list/horses-list.component';
+import { AdminDetailsComponent } from './admin-details/admin-details.component';
+import { RiderDetailsComponent } from './rider-details/rider-details.component';
+import { HorseInstructorDetailsComponent } from './horse-instructor-details/horse-instructor-details.component';
+import { WebsiteAdminDetailsComponent } from './website-admin-details/website-admin-details.component';
+import { AdminListComponent } from './admin-list/admin-list.component';
+import { RiderListComponent } from './rider-list/rider-list.component';
+import { HorseInstructorListComponent } from './horse-instructor-list/horse-instructor-list.component';
+import { WebsiteAdminListComponent } from './website-admin-list/website-admin-list.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +106,15 @@ import { HorsesListComponent } from './horses-list/horses-list.component';
     HorsesCreationComponent,
     LessonsPlanningManagementComponent,
     HorseDetailsComponent,
-    HorsesListComponent
+    HorsesListComponent,
+    AdminDetailsComponent,
+    RiderDetailsComponent,
+    HorseInstructorDetailsComponent,
+    WebsiteAdminDetailsComponent,
+    AdminListComponent,
+    RiderListComponent,
+    HorseInstructorListComponent,
+    WebsiteAdminListComponent
   ],
   imports: [
     BrowserModule,
