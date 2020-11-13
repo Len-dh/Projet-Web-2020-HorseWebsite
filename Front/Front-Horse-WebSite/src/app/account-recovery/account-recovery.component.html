@@ -1,16 +1,17 @@
 <mat-card class="mat-elevation-z5">
     <mat-card-content>
-        <form [formGroup]="form">
+        <form [formGroup]="recoveryForm" (ngSubmit)="sendRecoveryEmailToRider()">
             <h2>Mot de passe oublié</h2>
-            <mat-error *ngIf="loginInvalid">
-                L'adresse email et le mot de passe ne sont pas valides
-            </mat-error>
             <mat-form-field class="full-width-input">
-                <input matInput placeholder="Email" formControlName="email" required>
-                <mat-error>
-                    L'adresse email n'est pas valide
-                </mat-error>
-            </mat-form-field>
+                <input
+                  matInput
+                  placeholder="Email"
+                  [(ngModel)]="rider.riderEmailId"
+                  [ngModelOptions]="{ standalone: true }"
+                  required
+                />
+                <mat-error> L'adresse email n'est pas valide </mat-error>
+              </mat-form-field>
             <button mat-raised-button class="recovery">Envoyer le mot de passe par email</button>
         </form>
     </mat-card-content>

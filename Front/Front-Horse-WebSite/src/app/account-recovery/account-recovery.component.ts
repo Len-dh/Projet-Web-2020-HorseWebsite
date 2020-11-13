@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RegistrationService } from '../registration.service';
+import { Rider } from '../rider';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-account-recovery',
@@ -8,12 +11,27 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AccountRecoveryComponent implements OnInit {
 
-  form: FormGroup;
-  public loginInvalid: boolean;
+  rider = new Rider();
+  msg = '';
 
-  constructor() { }
+  constructor(private _service: RegistrationService, private _router: Router) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  recoveryForm: FormGroup = new FormGroup({
+    email: new FormControl('')
+  });
+
+  sendRecoveryEmailToRider() {
+    /*this._service.sendRecoveryEmailToRider(this.rider).subscribe(
+      (data) => {
+        console.log('response recieved');
+        this._router.navigate(['/']);
+      },
+      (error) => {
+        console.log('exception occured');
+        this.msg = 'error of your registration';
+      }
+    );*/
   }
-
 }

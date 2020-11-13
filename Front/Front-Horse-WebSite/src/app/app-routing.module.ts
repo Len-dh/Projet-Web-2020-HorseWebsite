@@ -18,6 +18,16 @@ import { RidingLessonsComponent } from './riding-lessons/riding-lessons.componen
 import { AccountManagementComponent } from './account-management/account-management.component';
 import { LessonsManagementComponent } from './lessons-management/lessons-management.component';
 import { LessonsCreationComponent } from './lessons-creation/lessons-creation.component';
+import { LessonsPlanningManagementComponent } from './lessons-planning-management/lessons-planning-management.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { AdminregistrationComponent } from './adminregistration/adminregistration.component';
+import { HiloginComponent } from './hilogin/hilogin.component';
+import { HiregistrationComponent } from './hiregistration/hiregistration.component';
+import { RiderloginComponent } from './riderlogin/riderlogin.component';
+import { RiderregistrationComponent } from './riderregistration/riderregistration.component';
+import { WaloginComponent } from './walogin/walogin.component';
+import { WaregistrationComponent } from './waregistration/waregistration.component';
+import { HorsesCreationComponent } from './horses-creation/horses-creation.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,13 +42,22 @@ const routes: Routes = [
   { path: 'instructor-homepage', component: InstructorHomepageComponent },
   { path: 'admin-homepage', component: AdminHomepageComponent },
   { path: 'horses-management', component: HorsesManagementComponent },
+  { path: 'horses-creation', component: HorsesCreationComponent },
   { path: 'users-management', component: UsersManagementComponent },
   { path: 'super-admin-homepage', component: SuperAdminHomepageComponent },
   { path: 'riding-lessons', component: RidingLessonsComponent },
   { path: 'account-management', component: AccountManagementComponent },
   { path: 'lessons-management', component: LessonsManagementComponent },
   { path: 'lessons-creation', component: LessonsCreationComponent },
-
+  { path: 'lessons-planning-management', component: LessonsPlanningManagementComponent },
+  { path: 'loginAdmin', component: AdminloginComponent },
+  { path: 'loginHI', component: HiloginComponent },
+  { path: 'loginRider', component: RiderloginComponent },
+  { path: 'loginWA', component: WaloginComponent },
+  { path: 'registeradmin', component: AdminregistrationComponent },
+  { path: 'registerHI', component: HiregistrationComponent },
+  { path: 'registerRider', component: RiderregistrationComponent },
+  { path: 'registerWA', component: WaregistrationComponent },
 ];
 
 @NgModule({

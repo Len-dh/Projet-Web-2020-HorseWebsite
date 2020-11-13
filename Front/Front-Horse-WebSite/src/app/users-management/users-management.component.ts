@@ -7,8 +7,12 @@ import { UsersDialogBoxComponent } from '../users-dialog-box/users-dialog-box.co
 
 export interface UserData {
   id: string;
-  name: string;
+  lastname: string;
+  surname: string;
+  email: string;
+  phone: string;
   type: string;
+  license: string;
 }
 
 const NAMES: string[] = [
@@ -17,7 +21,7 @@ const NAMES: string[] = [
 ];
 
 const TYPES: string[] = [
-  'Moniteur', 'Utilisateur', 'Admin'
+  'Moniteur', 'Cavalier', 'Administrateur'
 ];
 
 @Component({
@@ -27,8 +31,15 @@ const TYPES: string[] = [
 })
 
 export class UsersManagementComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'type', 'action'];
+  displayedColumns: string[] = ['lastname', 'surname', 'type', 'action'];
   dataSource: MatTableDataSource<UserData>;
+
+  lastname: string;
+  surname: string;
+  email: string;
+  phone: string;
+  type: string;
+  license: string;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -55,59 +66,32 @@ export class UsersManagementComponent implements AfterViewInit {
     }
   }
 
-  openDialog(action, obj): void {
-    obj.action = action;
+  openDialog(row): void {
     const dialogRef = this.dialog.open(UsersDialogBoxComponent, {
-      width: '250px',
-      data: obj
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result.event == 'Ajouter') {
-        //this.addRowData(result.data);
-      } else if (result.event == 'Modifier') {
-        //this.updateRowData(result.data);
-      } else if (result.event == 'Supprimer') {
-        //this.deleteRowData(result.data);
-      }
+      width: '650px',
+      data: { lastname: row.lastname, surname: row.surname, email: row.email, phone: row.phone, type: row.type, license: row.license }
     });
   }
-/*
-  addRowData(row_obj) {
-    var d = new Date();
-    this.dataSource.push({
-      id: d.getTime(),
-      name: row_obj.name
-    });
-    this.table.renderRows();
-  }
-
-  updateRowData(row_obj) {
-    this.dataSource = this.dataSource.filter((value, key) => {
-      if (value.id == row_obj.id) {
-        value.name = row_obj.name;
-      }
-      return true;
-    });
-  }
-
-  deleteRowData(row_obj) {
-    this.dataSource = this.dataSource.filter((value, key) => {
-      return value.id != row_obj.id;
-    });
-  }*/
 }
 
 
 /** Builds and returns a new User. */
 
 function createNewUser(id: number): UserData {
-  const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))];
+  const lastname = NAMES[Math.round(Math.random() * (NAMES.length - 1))];
+  const surname = NAMES[Math.round(Math.random() * (NAMES.length - 1))];
+  const email = "aaa@bbb.ccc";
+  const license = "0123456789";
+  const phone = "0123456789";
   const type = TYPES[Math.round(Math.random() * (TYPES.length - 1))];
 
   return {
     id: id.toString(),
-    name: name,
-    type: type
+    lastname: lastname,
+    surname: surname,
+    email: email,
+    phone: phone,
+    type: type,
+    license: license,
   };
 }

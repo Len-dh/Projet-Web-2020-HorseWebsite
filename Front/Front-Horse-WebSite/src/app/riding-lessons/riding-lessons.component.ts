@@ -4,15 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { LessonsDialogBoxComponent } from '../lessons-dialog-box/lessons-dialog-box.component';
-
-export interface LessonData {
-  idLesson: number;
-  schedules: Date;
-  groupSize: number;
-  level: number;
-  instructor: string;
-  recurrence: string;
-}
+import { Lesson } from '../lesson';
 
 const INSTRUCTORS: string[] = [
   'James', 'Ben', 'Laura'
@@ -25,8 +17,11 @@ const INSTRUCTORS: string[] = [
 })
 export class RidingLessonsComponent implements AfterViewInit {
 
-  displayedColumns: string[] = ['idLesson', 'schedules', 'groupSize', 'level', 'recurrence', 'instructor', 'action'];
-  dataSource: MatTableDataSource<LessonData>;
+  ELEMENT_DATA: Lesson[] = [];
+  currentLesson: Lesson[] = [];
+
+  displayedColumns: string[] = ['idLesson', 'schedules', 'level', 'instructor', 'groupSize', 'recurrence', 'action'];
+  dataSource: MatTableDataSource<Lesson>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -53,29 +48,20 @@ export class RidingLessonsComponent implements AfterViewInit {
     }
   }
 
-  openDialog(action, obj): void {
-    obj.action = action;
-    const dialogRef = this.dialog.open(LessonsDialogBoxComponent, {
-      width: '250px',
-      data: obj
-    });
+  public isLessonSelected(lessonId) {
+    return this.currentLesson.some(item => item.lessonId === lessonId);
+  }
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result.event == 'Ajouter') {
-        //this.addRowData(result.data);
-      } else if (result.event == 'Modifier') {
-        //this.updateRowData(result.data);
-      } else if (result.event == 'Supprimer') {
-        //this.deleteRowData(result.data);
-      }
-    });
+  public registerForALesson(event: any) {
+    //this.lessonService.addLesson(1,parseInt(event.currentTarget.value));
   }
 }
 
 /** Builds and returns a new Lesson. */
 
-function createNewLesson(id: number): LessonData {
-  const schedules = new Date('October 13, 2020 14:00:00');
+function createNewLesson(id: number): Lesson {
+  const schedulesStart = new Date('October 13, 2020 14:00:00');
+  const schedulesEnd = new Date('October 13, 2020 16:00:00');
   const groupSize = Math.round(Math.random() * (11 - 1) + 1);
   const level = Math.round(Math.random() * (8 - 1) + 1);
   const instructor = INSTRUCTORS[Math.round(Math.random() * (INSTRUCTORS.length - 1))];
@@ -87,11 +73,14 @@ function createNewLesson(id: number): LessonData {
     var recurrenceString = 'Oui';
   }
   return {
-    idLesson: id,
-    schedules: schedules,
-    groupSize: groupSize,
-    level: level,
-    instructor: instructor,
-    recurrence: recurrenceString
+    lessonId: id,
+    lessonTitle: "titre",
+    lessonDate: schedulesStart,
+    lessonStart: schedulesStart,
+    lessonEnd: schedulesEnd,
+    lessonGroupSize: groupSize,
+    lessonLevel: level,
+    lessonInstructor: instructor,
+    lessonRecurrence: recurrenceString
   };
 }

@@ -23,3 +23,7 @@ table {
       margin-left: 5px;
       margin-bottom: 15px;
   }
+
+  .mat-card-title {
+    text-align: center;
+  }

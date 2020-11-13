@@ -3,15 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-
-export interface LessonData {
-  idCourse: number;
-  schedules: Date;
-  groupSize: number;
-  level: number;
-  instructor: string;
-  recurrence: string;
-}
+import { Lesson } from '../lesson';
 
 const INSTRUCTORS: string[] = [
   'James', 'Ben', 'Laura'
@@ -24,14 +16,14 @@ const INSTRUCTORS: string[] = [
 
 })
 export class LessonsManagementComponent implements AfterViewInit {
-  
-  displayedColumns: string[] = ['idLesson', 'schedules', 'groupSize', 'level', 'recurrence', 'instructor'];
-  dataSource: MatTableDataSource<LessonData>;
+  ELEMENT_DATA: Lesson[] = [];
+  displayedColumns: string[] = ['schedules', 'title', 'level', 'instructor', 'groupSize', 'recurrence'];
+  dataSource: MatTableDataSource<Lesson>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public dialog: MatDialog) { 
+  constructor(public dialog: MatDialog) {
     // Create 100 courses
     const courses = Array.from({ length: 100 }, (_, k) => createNewLesson(k + 1));
 
@@ -56,8 +48,10 @@ export class LessonsManagementComponent implements AfterViewInit {
 
 /** Builds and returns a new Course. */
 
-function createNewLesson(id: number): LessonData {
-  const schedules = new Date('October 13, 2020 14:00:00');
+function createNewLesson(id: number): Lesson {
+  const lessonTitle = "Titre";
+  const schedulesStart = new Date('October 13, 2020 14:00:00');
+  const schedulesEnd = new Date('October 13, 2020 16:00:00');
   const groupSize = Math.round(Math.random() * (11 - 1) + 1);
   const level = Math.round(Math.random() * (8 - 1) + 1);
   const instructor = INSTRUCTORS[Math.round(Math.random() * (INSTRUCTORS.length - 1))];
@@ -69,11 +63,14 @@ function createNewLesson(id: number): LessonData {
     var recurrenceString = 'Oui';
   }
   return {
-    idCourse: id,
-    schedules: schedules,
-    groupSize: groupSize,
-    level: level,
-    instructor: instructor,
-    recurrence: recurrenceString
+    lessonId: id,
+    lessonTitle: lessonTitle,
+    lessonDate: schedulesStart,
+    lessonStart: schedulesStart,
+    lessonEnd: schedulesEnd,
+    lessonGroupSize: groupSize,
+    lessonLevel: level,
+    lessonInstructor: instructor,
+    lessonRecurrence: recurrenceString
   };
 }
