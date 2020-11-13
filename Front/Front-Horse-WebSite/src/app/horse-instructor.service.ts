@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root',
 })
 export class HorseInstructorService {
-  private baseUrl = 'http://localhost:8080/horseInstructors';
+  private baseUrl = 'http://localhost:8080/horse-instructors';
 
   constructor(private http: HttpClient) {}
 

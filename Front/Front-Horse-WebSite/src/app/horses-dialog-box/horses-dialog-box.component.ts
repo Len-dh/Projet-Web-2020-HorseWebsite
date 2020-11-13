@@ -1,13 +1,7 @@
-import { Component, Inject, Optional } from '@angular/core';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
-export interface UsersData {
-  id: string;
-  name: string;
-  breed: string;
-  age: string;
-  gender: string;
-}
+import { Horse } from '../horse';
+import { HorseService } from '../horse.service';
 
 @Component({
   selector: 'app-horses-dialog-box',
@@ -15,14 +9,11 @@ export interface UsersData {
   styleUrls: ['./horses-dialog-box.component.css']
 })
 
-export class HorsesDialogBoxComponent {
+export class HorsesDialogBoxComponent implements OnInit {
 
-  action: string;
-  local_data: any;
+  constructor(public dialogRef: MatDialogRef<HorsesDialogBoxComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private horseService: HorseService) {}
 
-  constructor(
-    public dialogRef: MatDialogRef<HorsesDialogBoxComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: UsersData) {}
+  ngOnInit(): void {  }
 
   onNoClick(): void {
     this.dialogRef.close();

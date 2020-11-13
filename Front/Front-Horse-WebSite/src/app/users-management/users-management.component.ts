@@ -4,25 +4,14 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { UsersDialogBoxComponent } from '../users-dialog-box/users-dialog-box.component';
-
-export interface UserData {
-  id: string;
-  lastname: string;
-  surname: string;
-  email: string;
-  phone: string;
-  type: string;
-  license: string;
-}
-
-const NAMES: string[] = [
-  'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-  'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-];
-
-const TYPES: string[] = [
-  'Moniteur', 'Cavalier', 'Administrateur'
-];
+import { Router } from "@angular/router"
+import { Admin } from '../admin';
+import { AdminService } from '../admin.service';
+import { HorseInstructor } from '../horse-instructor';
+import { HorseInstructorService } from '../horse-instructor.service';
+import { Rider } from '../rider';
+import { RiderService } from '../rider.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users-management',
@@ -31,67 +20,106 @@ const TYPES: string[] = [
 })
 
 export class UsersManagementComponent implements AfterViewInit {
-  displayedColumns: string[] = ['lastname', 'surname', 'type', 'action'];
-  dataSource: MatTableDataSource<UserData>;
+  adminsList: Admin[] = [];
+  admins: Observable<Admin[]>;
+  displayedColumnsAdmin: string[] = ['adminFirstName', 'adminName', 'type', 'action'];
+  dataSourceAdmin = new MatTableDataSource<Admin>(this.adminsList);
 
-  lastname: string;
-  surname: string;
-  email: string;
-  phone: string;
-  type: string;
-  license: string;
+  horseInstructorsList: HorseInstructor[] = [];
+  horseInstructor: Observable<HorseInstructor[]>;
+  displayedColumnsHorseInstructor: string[] = ['horseInstructorFirstName', 'horseInstructorName', 'type', 'action'];
+  dataSourceHorseInstructor = new MatTableDataSource<HorseInstructor>(this.horseInstructorsList);
+
+  ridersList: Rider[] = [];
+  riders: Observable<Rider[]>;
+  displayedColumnsRider: string[] = ['riderFirstName', 'riderName', 'type', 'action'];
+  dataSourceRider = new MatTableDataSource<Rider>(this.ridersList);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public dialog: MatDialog) {
-    // Create 100 users
-    const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
+  constructor(public dialog: MatDialog, private router: Router, private adminService: AdminService, private horseInstructorService: HorseInstructorService, private riderService: RiderService) { }
 
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+  ngOnInit(): void {
+    this.adminService.getAdminList().subscribe(result => this.initTableAdmin(result));
+    this.horseInstructorService.getHorseInstructorList().subscribe(result => this.initTableHI(result));
+    this.riderService.getRiderList().subscribe(result => this.initTableRider(result));
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.dataSourceAdmin.paginator = this.paginator;
+    this.dataSourceAdmin.sort = this.sort;
+
+    this.dataSourceHorseInstructor.paginator = this.paginator;
+    this.dataSourceHorseInstructor.sort = this.sort;
+
+    this.dataSourceRider.paginator = this.paginator;
+    this.dataSourceRider.sort = this.sort;
   }
 
-  applyFilter(event: Event) {
+  applyFilterAdmin(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.dataSourceAdmin.filter = filterValue.trim().toLowerCase();
 
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    if (this.dataSourceAdmin.paginator) {
+      this.dataSourceAdmin.paginator.firstPage();
     }
   }
 
-  openDialog(row): void {
+  applyFilterHI(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSourceHorseInstructor.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSourceHorseInstructor.paginator) {
+      this.dataSourceHorseInstructor.paginator.firstPage();
+    }
+  }
+
+  applyFilterRider(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSourceRider.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSourceRider.paginator) {
+      this.dataSourceRider.paginator.firstPage();
+    }
+  }
+
+  openDialogAdmin(row): void {
     const dialogRef = this.dialog.open(UsersDialogBoxComponent, {
       width: '650px',
-      data: { lastname: row.lastname, surname: row.surname, email: row.email, phone: row.phone, type: row.type, license: row.license }
+      data: { adminFirstName: row.adminFirstName, adminName: row.adminName, adminEmailId: row.adminEmailId, adminPhoneNumber: row.adminPhoneNumber, type: "Administrateur" }
     });
   }
-}
 
+  openDialogHI(row): void {
+    const dialogRef = this.dialog.open(UsersDialogBoxComponent, {
+      width: '650px',
+      data: { horseInstructorFirstName: row.horseInstructorFirstName, horseInstructorName: row.horseInstructorName, horseInstructorEmailId: row.horseInstructorEmailId, horseInstructorPhoneNumber: row.horseInstructorPhoneNumber, type: "Moniteur" }
+    });
+  }
 
-/** Builds and returns a new User. */
+  openDialogRider(row): void {
+    const dialogRef = this.dialog.open(UsersDialogBoxComponent, {
+      width: '650px',
+      data: { riderFirstName: row.riderFirstName, riderName: row.riderName, riderEmailId: row.riderEmailId, riderPhoneNumber: row.riderPhoneNumber, type: "Cavalier" }
+    });
+  }
 
-function createNewUser(id: number): UserData {
-  const lastname = NAMES[Math.round(Math.random() * (NAMES.length - 1))];
-  const surname = NAMES[Math.round(Math.random() * (NAMES.length - 1))];
-  const email = "aaa@bbb.ccc";
-  const license = "0123456789";
-  const phone = "0123456789";
-  const type = TYPES[Math.round(Math.random() * (TYPES.length - 1))];
+  initTableAdmin(list){
+    this.adminsList = list;
+    this.dataSourceAdmin = new MatTableDataSource<Admin>(this.adminsList);
+    this.dataSourceAdmin.paginator = this.paginator;
+  }
 
-  return {
-    id: id.toString(),
-    lastname: lastname,
-    surname: surname,
-    email: email,
-    phone: phone,
-    type: type,
-    license: license,
-  };
+  initTableHI(list){
+    this.horseInstructorsList = list;
+    this.dataSourceHorseInstructor = new MatTableDataSource<HorseInstructor>(this.horseInstructorsList);
+    this.dataSourceHorseInstructor.paginator = this.paginator;
+  }
+
+  initTableRider(list){
+    this.ridersList = list;
+    this.dataSourceRider = new MatTableDataSource<Rider>(this.ridersList);
+    this.dataSourceRider.paginator = this.paginator;
+  }
 }

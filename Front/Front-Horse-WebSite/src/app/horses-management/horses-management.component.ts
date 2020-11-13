@@ -6,23 +6,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HorsesDialogBoxComponent } from '../horses-dialog-box/horses-dialog-box.component';
 import { Router } from "@angular/router"
-
-export interface HorseData {
-  id: string;
-  name: string;
-  breed: string;
-  age: string;
-  gender: string;
-}
-
-const NAMES: string[] = [
-  'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-  'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-];
-
-const GENDER: string[] = ['M', 'F'];
-
-const BREEDS: string[] = ['Anglo-Arabian', 'Canadian horse', 'Castillonnais'];
+import { Horse } from '../horse';
+import { HorseService } from '../horse.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-horses-management',
@@ -30,20 +16,18 @@ const BREEDS: string[] = ['Anglo-Arabian', 'Canadian horse', 'Castillonnais'];
   styleUrls: ['./horses-management.component.css']
 })
 export class HorsesManagementComponent implements AfterViewInit {
-  //horsesList: Horses[] = [];
+  horsesList: Horse[] = [];
+  horses: Observable<Horse[]>;
   displayedColumns: string[] = ['name', 'breed', 'age', 'gender', 'action'];
-  dataSource: MatTableDataSource<HorseData>;
-  //dataSource = new MatTableDataSource<Horses>(this.horsesList);
+  dataSource = new MatTableDataSource<Horse>(this.horsesList);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public dialog: MatDialog, private router: Router) {
-    // Create 100 horses
-    const horses = Array.from({ length: 100 }, (_, k) => createNewHorse(k + 1));
+  constructor(public dialog: MatDialog, private router: Router, private horseService: HorseService) { }
 
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(horses);
+  ngOnInit(): void {
+    this.horseService.getHorseList().subscribe(result => this.initTable(result));
   }
 
   ngAfterViewInit() {
@@ -63,23 +47,13 @@ export class HorsesManagementComponent implements AfterViewInit {
   openDialog(row): void {
     const dialogRef = this.dialog.open(HorsesDialogBoxComponent, {
       width: '400px',
-      data: { name: row.name, breed: row.breed, age: row.age, gender: row.gender }
+      data: { horseName: row.horseName, horseBreed: row.horseBreed, horseAge: row.horseAge, horseGender: row.horseGender }
     });
   }
-}
 
-/** Builds and returns a new Horse. */
-function createNewHorse(id: number): HorseData {
-  const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))];
-  const breed = BREEDS[Math.round(Math.random() * (BREEDS.length - 1))];
-  const age = Math.round(Math.random() * 30);
-  const gender = GENDER[Math.round(Math.random() * (GENDER.length - 1))];
-
-  return {
-    id: id.toString(),
-    name: name,
-    breed: breed,
-    age: age.toString(),
-    gender: gender,
-  };
+  initTable(list){
+    this.horsesList = list;
+    this.dataSource = new MatTableDataSource<Horse>(this.horsesList);
+    this.dataSource.paginator = this.paginator;
+  }
 }
