@@ -134,16 +134,16 @@ public class RegistrationController {
     }
 
     @GetMapping("/horses")
-    public List<Horse> getAllHorses(@RequestBody Horse horse){
+    public List<Horse> getAllHorses( ){
         List<Horse> horses = new ArrayList<>();
-        Horse userObj = null;
-        userObj = service.saveHorse(horse);
+
         horseRepository.findAll().forEach(horses::add);
         return horses;
     }
 
     @PostMapping("/horses/create")
     public Horse horseCreation (@RequestBody Horse horse){
+        Horse _horse = horseRepository.save(new Horse(horse.getHorseAge(), horse.getHorseName(), horse.getHorseBreed(), horse.getHorseGender()));
         Horse userObj = null;
         userObj = service.saveHorse(horse);
         return userObj;

@@ -25,6 +25,9 @@ public class Horse {
     public Horse(int horseAge, String horseName, String horseBreed, String horseGender){
     }
 
+    public Horse(){
+    }
+
     @JsonCreator
     public Horse(@JsonProperty("horseId") int horseId,@JsonProperty("horseAge") int horseAge,@JsonProperty("horseName") String horseName,@JsonProperty("horseBreed") String horseBreed,@JsonProperty("horseGender") String horseGender) {
         this.horseAge = horseAge;
