@@ -23,7 +23,7 @@ public class RegistrationController {
 
     @Autowired
     HorseRepository horseRepository;
-    
+
 
     @PostMapping("/registeradmin")
     public Admin registerAdmin(@RequestBody Admin admin) throws Exception {
@@ -140,7 +140,7 @@ public class RegistrationController {
         return horses;
     }
 
-    @PostMapping("/horses-creation")
+    @PostMapping("/horses/create")
     public Horse horseCreation (@RequestBody Horse horse){
         Horse _horse = horseRepository.save(new Horse(horse.getHorseAge(), horse.getHorseName(), horse.getHorseBreed(), horse.getHorseGender()));
         return _horse;

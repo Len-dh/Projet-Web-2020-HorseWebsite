@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Horse } from '../horse';
 import { Router } from '@angular/router';
-import { RegistrationService } from '../registration.service';
+import { HorseService } from '../horse.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -15,13 +15,13 @@ export class HorsesCreationComponent implements OnInit {
 
   creationForm: FormGroup = new FormGroup({ });
 
-  constructor(private _service: RegistrationService, private _router: Router) { }
+  constructor(private _service: HorseService, private _router: Router) { }
 
   ngOnInit(): void {
   }
 
   createHorse() {
-    this._service.registerHorseFromRemote(this.horse).subscribe(
+    this._service.createHorse(this.horse).subscribe(
       (data) => {
         console.log('response recieved');
         this._router.navigate(['/horses-management']);
@@ -32,5 +32,4 @@ export class HorsesCreationComponent implements OnInit {
       }
     );
   }
-
 }
