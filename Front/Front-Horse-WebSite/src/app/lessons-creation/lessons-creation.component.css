@@ -1,0 +1,63 @@
+mat-card {
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
+}
+  
+mat-form-field {
+    display: block;
+}
+
+.register {
+    background-color: darkseagreen;
+    color:white;
+    width: 10em;
+    height: 3em;
+}
+
+
+body {
+    color: rgb(219, 0, 0);
+}mat-card {
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
+}
+  
+mat-form-field {
+    display: block;
+}
+
+.register {
+    background-color: darkseagreen;
+    color:white;
+    width: 10em;
+    height: 3em;
+}
+
+.mat-checkbox ~ .mat-checkbox {
+    margin-left: 16px;
+}
+
+body {
+    color: rgb(219, 0, 0);
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color: darkseagreen;
+}
+::ng-deep .mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: darkseagreen !important;
+}
+::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+    background-color: darkseagreen !important;
+}
+
+.recurrent {
+    margin-left: 16px;
+}
+
+.save {
+    background-color: darkseagreen;
+    color: white;
+}

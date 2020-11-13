@@ -1,0 +1,29 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  mat-card {
+      max-width: 1200px;
+      margin: 2em auto;
+  }
+  
+  th {
+      font-weight: bolder;
+      font-size: medium;
+  }
+  
+  button {
+      background-color: darkseagreen;
+      color: white;
+      margin-left: 5px;
+      margin-bottom: 15px;
+  }
+
+  .mat-card-title {
+    text-align: center;
+  }

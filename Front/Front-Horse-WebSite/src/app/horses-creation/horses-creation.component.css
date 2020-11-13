@@ -1,0 +1,41 @@
+mat-card {
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
+  }
+  
+  mat-form-field {
+    display: block;
+  }
+  
+  .create {
+    background-color: darkseagreen;
+    color: white;
+    width: 10em;
+    height: 3em;
+  }
+  
+  body {
+    color: rgb(219, 0, 0);
+  }
+  mat-card {
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
+  }
+  
+  mat-form-field {
+    display: block;
+  }
+  
+  .create {
+    background-color: darkseagreen;
+    color: white;
+    width: 10em;
+    height: 3em;
+  }
+  
+  body {
+    color: rgb(219, 0, 0);
+  }
+  

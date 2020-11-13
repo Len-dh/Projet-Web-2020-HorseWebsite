@@ -1,0 +1,155 @@
+<button mat-button routerLink="/registeradmin" mat-flat-button>Ajouter un administrateur</button>
+<button mat-button routerLink="/registerHI" mat-flat-button>Ajouter un moniteur</button>
+
+<mat-card class="mat-elevation-z5">
+    <mat-card-content>
+        <mat-card-title>Gestion des administrateurs</mat-card-title>
+        <mat-form-field>
+            <mat-label>Recherche</mat-label>
+            <input matInput (keyup)="applyFilterAdmin($event)" placeholder="Ex. Mia" #input>
+        </mat-form-field>
+
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSourceAdmin" matSort>
+
+                <!-- Lastname Column -->
+                <ng-container matColumnDef="adminFirstName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+                    <td mat-cell *matCellDef="let row"> {{row.adminFirstName}} </td>
+                </ng-container>
+
+                <!-- Surname Column -->
+                <ng-container matColumnDef="adminName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </th>
+                    <td mat-cell *matCellDef="let row"> {{row.adminName}} </td>
+                </ng-container>
+
+                <!-- Type Column -->
+                <ng-container matColumnDef="type">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+                    <td mat-cell *matCellDef="let row"> Administrateur </td>
+                </ng-container>
+
+                <!-- Action Column -->
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Fiche de renseignements </th>
+                    <td mat-cell *matCellDef="let row" class="action-link">
+                        <a (click)="openDialogAdmin(row)"><button mat-mini-fab color="darkseagreen"><mat-icon>contacts</mat-icon></button></a>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsAdmin"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumnsAdmin;"></tr>
+
+                <!-- Row shown when there is no matching data. -->
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">Aucune donnée ne correspond au filtre "{{input.value}}"</td>
+                </tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="mat-elevation-z5">
+    <mat-card-content>
+        <mat-card-title>Gestion des moniteurs</mat-card-title>
+        <mat-form-field>
+            <mat-label>Recherche</mat-label>
+            <input matInput (keyup)="applyFilterHI($event)" placeholder="Ex. Mia" #input>
+        </mat-form-field>
+
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSourceHorseInstructor" matSort>
+
+                <!-- Lastname Column -->
+                <ng-container matColumnDef="horseInstructorFirstName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+                    <td mat-cell *matCellDef="let row"> {{row.horseInstructorFirstName}} </td>
+                </ng-container>
+
+                <!-- Surname Column -->
+                <ng-container matColumnDef="horseInstructorName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </th>
+                    <td mat-cell *matCellDef="let row"> {{row.horseInstructorName}} </td>
+                </ng-container>
+
+                <!-- Type Column -->
+                <ng-container matColumnDef="type">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+                    <td mat-cell *matCellDef="let row"> Moniteur </td>
+                </ng-container>
+
+                <!-- Action Column -->
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Fiche de renseignements </th>
+                    <td mat-cell *matCellDef="let row" class="action-link">
+                        <a (click)="openDialogHI(row)"><button mat-mini-fab color="darkseagreen"><mat-icon>contacts</mat-icon></button></a>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsHorseInstructor"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumnsHorseInstructor;"></tr>
+
+                <!-- Row shown when there is no matching data. -->
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">Aucune donnée ne correspond au filtre "{{input.value}}"</td>
+                </tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="mat-elevation-z5">
+    <mat-card-content>
+        <mat-card-title>Gestion des cavaliers</mat-card-title>
+        <mat-form-field>
+            <mat-label>Recherche</mat-label>
+            <input matInput (keyup)="applyFilterRider($event)" placeholder="Ex. Mia" #input>
+        </mat-form-field>
+
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSourceRider" matSort>
+
+                <!-- Lastname Column -->
+                <ng-container matColumnDef="riderFirstName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+                    <td mat-cell *matCellDef="let row"> {{row.riderFirstName}} </td>
+                </ng-container>
+
+                <!-- Surname Column -->
+                <ng-container matColumnDef="riderName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Prénom </th>
+                    <td mat-cell *matCellDef="let row"> {{row.riderName}} </td>
+                </ng-container>
+
+                <!-- Type Column -->
+                <ng-container matColumnDef="type">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+                    <td mat-cell *matCellDef="let row"> Cavalier </td>
+                </ng-container>
+
+                <!-- Action Column -->
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Fiche de renseignements </th>
+                    <td mat-cell *matCellDef="let row" class="action-link">
+                        <a (click)="openDialogRider(row)"><button mat-mini-fab color="darkseagreen"><mat-icon>contacts</mat-icon></button></a>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumnsRider"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumnsRider;"></tr>
+
+                <!-- Row shown when there is no matching data. -->
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">Aucune donnée ne correspond au filtre "{{input.value}}"</td>
+                </tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>

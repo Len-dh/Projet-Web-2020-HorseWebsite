@@ -1,0 +1,5 @@
+<h1>Horses</h1>
+
+<div *ngFor="let horse of horses | async" style="width: 300px">
+  <app-horse-details [horse]="horse"></app-horse-details>
+</div>

@@ -1,0 +1,37 @@
+table {
+    width: 100%;
+    text-align: left;
+}
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+mat-card {
+    max-width: 1200px;
+    margin: 2em auto;
+}
+th {
+    font-weight: bolder;
+    font-size: medium;
+}
+td, th {
+    width: 17%;
+}
+button {
+    background-color: darkseagreen;
+    color: white;
+    margin: 5px;
+}
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color: darkseagreen;
+}
+::ng-deep .mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: darkseagreen !important;
+}
+::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+    background-color: darkseagreen !important;
+}
+
+.mat-card-title {
+    text-align: center;
+  }

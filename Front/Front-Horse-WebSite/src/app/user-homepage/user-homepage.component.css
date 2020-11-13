@@ -1,0 +1,24 @@
+mat-card {
+    max-width: 450px;
+    margin: 2em auto;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+mat-card-header {
+    padding-bottom: 25px;
+}
+
+mat-card::ng-deep.mat-card-header-text {
+    width: 100%;
+}
+
+img {
+    max-width: 400px;
+}
+
+button {
+    background-color: darkseagreen;
+    color:white;
+    height: 3em;
+}

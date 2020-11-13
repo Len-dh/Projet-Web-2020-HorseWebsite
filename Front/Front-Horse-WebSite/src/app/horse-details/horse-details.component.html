@@ -1,0 +1,10 @@
+<div *ngIf="horse">
+  <div><label>Name: </label> {{ horse.horseName }}</div>
+  <div><label>Age: </label> {{ horse.horseAge }}</div>
+  <div><label>Breed: </label> {{ horse.horseBreed }}</div>
+  <div><label>Gender: </label> {{ horse.horseGender }}</div>
+
+  <span class="button is-small btn-danger" (click)="deleteHorse()">Delete</span>
+
+  <hr />
+</div>
