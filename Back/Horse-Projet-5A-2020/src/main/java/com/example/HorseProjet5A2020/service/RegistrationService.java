@@ -36,11 +36,6 @@ public class RegistrationService {
     public Admin fetchAdminByEmailIdAndPassword(String email, String password){
         return repoAdmin.findByAdminEmailIdAndAdminPassword(email, password);
     }
-    public Admin saveAdmin(Admin admin){ return repoAdmin.save(admin); }
-    public HorseInstructor saveHI(HorseInstructor hi){ return repoHI.save(hi); }
-    public Rider saveRider(Rider rider){ return repoRider.save(rider); }
-    public WebsiteAdmin saveWA(WebsiteAdmin wa){ return repoWA.save(wa); }
-
 
     public HorseInstructor fetchHIByEmailId(String email){
         return repoHI.findByHorseInstructorEmailId(email);
