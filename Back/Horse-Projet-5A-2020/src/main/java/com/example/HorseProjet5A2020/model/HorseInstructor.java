@@ -33,6 +33,22 @@ public class HorseInstructor {
         this.horseInstructorPassword = horseInstructorPassword;
     }
 
+    public int getHorseInstructorId() {
+        return horseInstructorId;
+    }
+
+    public int getHorseInstructorPhoneNumber() {
+        return horseInstructorPhoneNumber;
+    }
+
+    public String getHorseInstructorName() {
+        return horseInstructorName;
+    }
+
+    public String getHorseInstructorFirstName() {
+        return horseInstructorFirstName;
+    }
+
     public String getHorseInstructorEmailId() {
         return horseInstructorEmailId;
     }

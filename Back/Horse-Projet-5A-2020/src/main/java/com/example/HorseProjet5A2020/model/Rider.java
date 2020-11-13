@@ -34,6 +34,22 @@ public class Rider {
         this.riderPassword = riderPassword;
     }
 
+    public int getRiderId() {
+        return riderId;
+    }
+
+    public int getRiderPhoneNumber() {
+        return riderPhoneNumber;
+    }
+
+    public String getRiderName() {
+        return riderName;
+    }
+
+    public String getRiderFirstName() {
+        return riderFirstName;
+    }
+
     public String getRiderEmailId() {
         return riderEmailId;
     }

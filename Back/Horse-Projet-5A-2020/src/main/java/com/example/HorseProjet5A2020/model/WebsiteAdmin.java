@@ -33,6 +33,22 @@ public class WebsiteAdmin {
         this.websiteAdminPassword = websiteAdminPassword;
     }
 
+    public int getWebsiteAdminId() {
+        return websiteAdminId;
+    }
+
+    public int getWebsiteAdminPhoneNumber() {
+        return websiteAdminPhoneNumber;
+    }
+
+    public String getWebsiteAdminName() {
+        return websiteAdminName;
+    }
+
+    public String getWebsiteAdminFirstName() {
+        return websiteAdminFirstName;
+    }
+
     public String getWebsiteAdminEmailId() {
         return websiteAdminEmailId;
     }

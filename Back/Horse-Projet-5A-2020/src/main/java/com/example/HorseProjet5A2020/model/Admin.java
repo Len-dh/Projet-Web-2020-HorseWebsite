@@ -33,6 +33,22 @@ public class Admin {
         this.adminPassword = adminPassword;
     }
 
+    public int getAdminId() {
+        return adminId;
+    }
+
+    public int getAdminPhoneNumber() {
+        return adminPhoneNumber;
+    }
+
+    public String getAdminName() {
+        return adminName;
+    }
+
+    public String getAdminFirstName() {
+        return adminFirstName;
+    }
+
     public String getAdminEmailId() {
         return adminEmailId;
     }

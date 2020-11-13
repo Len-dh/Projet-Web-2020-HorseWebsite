@@ -22,12 +22,15 @@ public class RegistrationService {
     private RegistrationRepositoryWA repoWA;
     @Autowired
     private HorseRepository repoHorse;
+    @Autowired
+    private LessonRepository repoLesson;
 
     public Admin saveAdmin(Admin admin){ return repoAdmin.save(admin); }
     public HorseInstructor saveHI(HorseInstructor hi){ return repoHI.save(hi); }
     public Rider saveRider(Rider rider){ return repoRider.save(rider); }
     public WebsiteAdmin saveWA(WebsiteAdmin wa){ return repoWA.save(wa); }
     public Horse saveHorse(Horse horse){ return repoHorse.save(horse); }
+    public Lesson saveLesson(Lesson lesson){ return repoLesson.save(lesson); }
 
     public Admin fetchAdminByEmailId(String email){
         return repoAdmin.findByAdminEmailId(email);
