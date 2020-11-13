@@ -4,20 +4,36 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { Lesson } from '../lesson';
+import { Horse } from '../horse';
+import { Rider } from '../rider';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import { FormControl, FormGroup } from '@angular/forms';
 
 const INSTRUCTORS: string[] = [
   'James', 'Ben', 'Laura'
 ];
 
 @Component({
-  selector: 'app-lessons-management',
-  templateUrl: './lessons-management.component.html',
-  styleUrls: ['./lessons-management.component.css'],
-
+  selector: 'app-lessons-planning-management',
+  templateUrl: './lessons-planning-management.component.html',
+  styleUrls: ['./lessons-planning-management.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ]
 })
-export class LessonsManagementComponent implements AfterViewInit {
+export class LessonsPlanningManagementComponent implements AfterViewInit {
   ELEMENT_DATA: Lesson[] = [];
   displayedColumns: string[] = ['schedules', 'level', 'instructor', 'groupSize', 'recurrence'];
+  expandedElement: Lesson | null;
+  riders: Rider[] = [{riderName: 'nom1', riderId: 1, riderEmailId: 'test@test.test', riderFirstName: 'prenom1', riderPassword: 'aze', riderPhoneNumber: 12}, {riderName: 'nom2', riderId: 1, riderEmailId: 'test@test.test', riderFirstName: 'prenom2', riderPassword: 'aze', riderPhoneNumber: 12}];
+  horses: Horse[] = [{horseName: 'nomh1', horseId: 1, horseAge: 10, horseBreed: 'race', horseGender: "F"}, {horseName: 'nomh2', horseId: 1, horseAge: 10, horseBreed: 'race', horseGender: "F"}];
+
+  saveHorsesChoiceForm: FormGroup = new FormGroup({ });
+
   dataSource: MatTableDataSource<Lesson>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -44,6 +60,8 @@ export class LessonsManagementComponent implements AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  saveHorsesChoice() { }
 }
 
 /** Builds and returns a new Course. */

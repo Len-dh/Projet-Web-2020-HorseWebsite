@@ -59,6 +59,7 @@ import { RiderregistrationComponent } from './riderregistration/riderregistratio
 import { WaloginComponent } from './walogin/walogin.component';
 import { WaregistrationComponent } from './waregistration/waregistration.component';
 import { HorsesCreationComponent } from './horses-creation/horses-creation.component';
+import { LessonsPlanningManagementComponent } from './lessons-planning-management/lessons-planning-management.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { HorsesCreationComponent } from './horses-creation/horses-creation.compo
     RiderregistrationComponent,
     WaloginComponent,
     WaregistrationComponent,
-    HorsesCreationComponent
+    HorsesCreationComponent,
+    LessonsPlanningManagementComponent
   ],
   imports: [
     BrowserModule,

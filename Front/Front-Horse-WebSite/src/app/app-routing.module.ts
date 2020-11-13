@@ -18,6 +18,7 @@ import { RidingLessonsComponent } from './riding-lessons/riding-lessons.componen
 import { AccountManagementComponent } from './account-management/account-management.component';
 import { LessonsManagementComponent } from './lessons-management/lessons-management.component';
 import { LessonsCreationComponent } from './lessons-creation/lessons-creation.component';
+import { LessonsPlanningManagementComponent } from './lessons-planning-management/lessons-planning-management.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AdminregistrationComponent } from './adminregistration/adminregistration.component';
 import { HiloginComponent } from './hilogin/hilogin.component';
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'account-management', component: AccountManagementComponent },
   { path: 'lessons-management', component: LessonsManagementComponent },
   { path: 'lessons-creation', component: LessonsCreationComponent },
+  { path: 'lessons-planning-management', component: LessonsPlanningManagementComponent },
   { path: 'loginAdmin', component: AdminloginComponent },
   { path: 'loginHI', component: HiloginComponent },
   { path: 'loginRider', component: RiderloginComponent },
