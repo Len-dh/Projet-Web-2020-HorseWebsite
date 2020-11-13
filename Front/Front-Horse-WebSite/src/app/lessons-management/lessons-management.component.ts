@@ -17,7 +17,7 @@ const INSTRUCTORS: string[] = [
 })
 export class LessonsManagementComponent implements AfterViewInit {
   ELEMENT_DATA: Lesson[] = [];
-  displayedColumns: string[] = ['schedules', 'level', 'instructor', 'groupSize', 'recurrence'];
+  displayedColumns: string[] = ['schedules', 'title', 'level', 'instructor', 'groupSize', 'recurrence'];
   dataSource: MatTableDataSource<Lesson>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

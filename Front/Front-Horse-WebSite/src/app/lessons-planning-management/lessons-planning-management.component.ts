@@ -27,7 +27,7 @@ const INSTRUCTORS: string[] = [
 })
 export class LessonsPlanningManagementComponent implements AfterViewInit {
   ELEMENT_DATA: Lesson[] = [];
-  displayedColumns: string[] = ['schedules', 'level', 'instructor', 'groupSize', 'recurrence'];
+  displayedColumns: string[] = ['schedules', 'title', 'level', 'instructor', 'groupSize', 'recurrence'];
   expandedElement: Lesson | null;
   riders: Rider[] = [{riderName: 'nom1', riderId: 1, riderEmailId: 'test@test.test', riderFirstName: 'prenom1', riderPassword: 'aze', riderPhoneNumber: 12}, {riderName: 'nom2', riderId: 1, riderEmailId: 'test@test.test', riderFirstName: 'prenom2', riderPassword: 'aze', riderPhoneNumber: 12}];
   horses: Horse[] = [{horseName: 'nomh1', horseId: 1, horseAge: 10, horseBreed: 'race', horseGender: "F"}, {horseName: 'nomh2', horseId: 1, horseAge: 10, horseBreed: 'race', horseGender: "F"}];

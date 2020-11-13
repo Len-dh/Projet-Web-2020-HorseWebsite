@@ -17,6 +17,12 @@
                         {{ element.lessonStart | date:'HH:mm' }} à {{ element.lessonEnd | date:'HH:mm' }} </td>
                 </ng-container>
 
+                <!-- Title Column -->
+                <ng-container matColumnDef="title">
+                    <th mat-header-cell *matHeaderCellDef> Titre </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.lessonTitle }} </td>
+                </ng-container>
+
                 <!-- Groupe size Column -->
                 <ng-container matColumnDef="groupSize">
                     <th mat-header-cell *matHeaderCellDef> Taille du groupe </th>
