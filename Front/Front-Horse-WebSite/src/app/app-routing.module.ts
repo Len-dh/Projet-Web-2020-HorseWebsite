@@ -18,10 +18,7 @@ import { RidingLessonsComponent } from './riding-lessons/riding-lessons.componen
 import { AccountManagementComponent } from './account-management/account-management.component';
 import { LessonsManagementComponent } from './lessons-management/lessons-management.component';
 import { LessonsCreationComponent } from './lessons-creation/lessons-creation.component';
-<<<<<<< HEAD
 import { LessonsPlanningManagementComponent } from './lessons-planning-management/lessons-planning-management.component';
-=======
->>>>>>> 88829b0... first commit Back horse
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AdminregistrationComponent } from './adminregistration/adminregistration.component';
 import { HiloginComponent } from './hilogin/hilogin.component';
@@ -31,17 +28,11 @@ import { RiderregistrationComponent } from './riderregistration/riderregistratio
 import { WaloginComponent } from './walogin/walogin.component';
 import { WaregistrationComponent } from './waregistration/waregistration.component';
 import { HorsesCreationComponent } from './horses-creation/horses-creation.component';
-<<<<<<< HEAD
-
-const routes: Routes = [
-  { path: '', component: HomeComponent },
-=======
 import { HorsesListComponent } from './horses-list/horses-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'horse', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'horse', component: HorsesListComponent },
->>>>>>> 88829b0... first commit Back horse
   { path: 'home', component: HomeComponent },
   { path: 'login-user', component: LoginUserComponent },
   { path: 'login-instructor', component: LoginInstructorComponent },
@@ -60,10 +51,7 @@ const routes: Routes = [
   { path: 'account-management', component: AccountManagementComponent },
   { path: 'lessons-management', component: LessonsManagementComponent },
   { path: 'lessons-creation', component: LessonsCreationComponent },
-<<<<<<< HEAD
   { path: 'lessons-planning-management', component: LessonsPlanningManagementComponent },
-=======
->>>>>>> 88829b0... first commit Back horse
   { path: 'loginAdmin', component: AdminloginComponent },
   { path: 'loginHI', component: HiloginComponent },
   { path: 'loginRider', component: RiderloginComponent },

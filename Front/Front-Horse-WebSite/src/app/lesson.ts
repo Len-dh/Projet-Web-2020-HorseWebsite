@@ -9,8 +9,4 @@ export class Lesson {
   lessonInstructor: string;
   lessonRecurrence: string;
   constructor() {}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 88829b0... first commit Back horse
