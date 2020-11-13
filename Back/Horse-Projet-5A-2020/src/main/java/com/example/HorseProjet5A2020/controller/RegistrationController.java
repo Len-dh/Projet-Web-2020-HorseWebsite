@@ -1,11 +1,18 @@
 package com.example.HorseProjet5A2020.controller;
 
 import com.example.HorseProjet5A2020.model.*;
+import com.example.HorseProjet5A2020.repository.HorseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
 import com.example.HorseProjet5A2020.service.RegistrationService;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @RestController // return some response from the controller
 // Construction Form
@@ -14,19 +21,9 @@ public class RegistrationController {
     @Autowired
     private RegistrationService service;
 
-    @PostMapping("/registeruser")
-    public User registerUser(@RequestBody User user) throws Exception {
-        String tempEmailId = user.getEmailId();
-        if (tempEmailId != null && !"".equals(tempEmailId)){
-            User userobj = service.fetchUserByEmailId(tempEmailId);
-            if (userobj != null){
-                throw new Exception("user with " + tempEmailId + " is already exist");
-            }
-        }
-        User userObj = null;
-        userObj = service.saveUser(user);
-        return userObj;
-    }
+    @Autowired
+    HorseRepository horseRepository;
+    
 
     @PostMapping("/registeradmin")
     public Admin registerAdmin(@RequestBody Admin admin) throws Exception {
@@ -84,19 +81,6 @@ public class RegistrationController {
         return userObj;
     }
 
-    @PostMapping("/login")
-    public User loginUser (@RequestBody User user) throws Exception {
-        User userObj = null;
-        String tempEmailId = user.getEmailId(), tempPass = user.getPassword();
-        if(tempEmailId != null && tempPass != null){
-            userObj = service.fetchUserByEmailIdAndPassword(tempEmailId, tempPass);
-        }
-        if (userObj == null){
-            throw new Exception("bad credentials");
-        }
-        return userObj;
-    }
-
     @PostMapping("/loginAdmin")
     public Admin loginAdmin (@RequestBody Admin admin) throws Exception {
         Admin userObj = null;
@@ -149,4 +133,23 @@ public class RegistrationController {
         return userObj;
     }
 
+    @GetMapping("/horses")
+    public List<Horse> getAllHorses(){
+        List<Horse> horses = new ArrayList<>();
+        horseRepository.findAll().forEach(horses::add);
+        return horses;
+    }
+
+    @PostMapping("/horses-creation")
+    public Horse horseCreation (@RequestBody Horse horse){
+        Horse _horse = horseRepository.save(new Horse(horse.getHorseAge(), horse.getHorseName(), horse.getHorseBreed(), horse.getHorseGender()));
+        return _horse;
+    }
+
+    @DeleteMapping("/horses/{id}")
+        public ResponseEntity<String> deleteHorse(@PathVariable("id") int id){
+
+        horseRepository.deleteById(id);
+        return new ResponseEntity<>("Le cheval à été supprimer!", HttpStatus.OK);
+    }
 }

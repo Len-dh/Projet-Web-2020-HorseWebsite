@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class Rider {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int riderId;
     private int riderPhoneNumber;
     private String riderEmailId;

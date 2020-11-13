@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class WebsiteAdmin {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int websiteAdminId;
     private int websiteAdminPhoneNumber;
     private String websiteAdminEmailId;

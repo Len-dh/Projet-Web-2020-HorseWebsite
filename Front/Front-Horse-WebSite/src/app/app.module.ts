@@ -59,7 +59,12 @@ import { RiderregistrationComponent } from './riderregistration/riderregistratio
 import { WaloginComponent } from './walogin/walogin.component';
 import { WaregistrationComponent } from './waregistration/waregistration.component';
 import { HorsesCreationComponent } from './horses-creation/horses-creation.component';
+<<<<<<< HEAD
 import { LessonsPlanningManagementComponent } from './lessons-planning-management/lessons-planning-management.component';
+=======
+import { HorseDetailsComponent } from './horse-details/horse-details.component';
+import { HorsesListComponent } from './horses-list/horses-list.component';
+>>>>>>> 88829b0... first commit Back horse
 
 @NgModule({
   declarations: [
@@ -94,7 +99,12 @@ import { LessonsPlanningManagementComponent } from './lessons-planning-managemen
     WaloginComponent,
     WaregistrationComponent,
     HorsesCreationComponent,
+<<<<<<< HEAD
     LessonsPlanningManagementComponent
+=======
+    HorseDetailsComponent,
+    HorsesListComponent
+>>>>>>> 88829b0... first commit Back horse
   ],
   imports: [
     BrowserModule,

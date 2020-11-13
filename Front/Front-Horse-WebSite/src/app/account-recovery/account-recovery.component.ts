@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { Router } from '@angular/router';
 import { RegistrationService } from '../registration.service';
 import { Rider } from '../rider';
 import { FormControl, FormGroup } from '@angular/forms';
+=======
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+>>>>>>> 88829b0... first commit Back horse
 
 @Component({
   selector: 'app-account-recovery',
@@ -11,6 +15,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AccountRecoveryComponent implements OnInit {
 
+<<<<<<< HEAD
   rider = new Rider();
   msg = '';
 
@@ -35,3 +40,14 @@ export class AccountRecoveryComponent implements OnInit {
     );*/
   }
 }
+=======
+  form: FormGroup;
+  public loginInvalid: boolean;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+>>>>>>> 88829b0... first commit Back horse

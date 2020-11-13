@@ -27,7 +27,11 @@ export class AdminregistrationComponent implements OnInit {
     this._service.registerAdminFromRemote(this.admin).subscribe(
       (data) => {
         console.log('response recieved');
+<<<<<<< HEAD
         this._router.navigate(['/users-management']);
+=======
+        this._router.navigate(['/loginAdmin']);
+>>>>>>> 88829b0... first commit Back horse
       },
       (error) => {
         console.log('exception occured');
