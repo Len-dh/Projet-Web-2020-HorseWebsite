@@ -1,0 +1,40 @@
+<mat-card class="mat-elevation-z5">
+    <mat-card-content>
+        <form [formGroup]="createLessonForm" (ngSubmit)="createLesson()">
+            <h2>Créer un cours</h2>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Titre du cours (optionnel)" formControlName="lessonTitle">
+                <mat-error>
+                    Le titre du cours n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Choisir une date</mat-label>
+                <input matInput [matDatepicker]="dp" required formControlName="lessonDate">
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="time" class="bg-none" formControlName="lessonStart" placeholder="Heure de début" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput type="time" class="bg-none" formControlName="lessonEnd" placeholder="Heure de fin" required>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput type="number" placeholder="Nombre de cavaliers" formControlName="lessonGroupSize" required>
+                <mat-error>
+                    Le nombre de cavaliers n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput type="number" placeholder="Niveau (Galop)" formControlName="lessonLevel" min="1" max="7" required>
+                <mat-error>
+                    Le niveau n'est pas valide
+                </mat-error>
+            </mat-form-field>
+            <mat-checkbox (change)="toggle($event)" class="recurrent" labelPosition="before" formControlName="lessonRecurrence">Cours récurrent : </mat-checkbox>
+            <br/>
+            <button mat-raised-button class="save">Créer le cours</button>
+        </form>
+    </mat-card-content>
+</mat-card>

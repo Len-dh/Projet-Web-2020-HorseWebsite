@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,14 +25,84 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+import { HomeComponent } from './home/home.component';
+import { LoginUserComponent } from './login-user/login-user.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { InstructorHomepageComponent } from './instructor-homepage/instructor-homepage.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { UserHomepageComponent } from './user-homepage/user-homepage.component';
+import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
+import { AccountRecoveryComponent } from './account-recovery/account-recovery.component';
+import { HorsesManagementComponent } from './horses-management/horses-management.component';
+import { HorsesDialogBoxComponent } from './horses-dialog-box/horses-dialog-box.component';
+import { UsersManagementComponent } from './users-management/users-management.component';
+import { UsersDialogBoxComponent } from './users-dialog-box/users-dialog-box.component';
+import { SuperAdminHomepageComponent } from './super-admin-homepage/super-admin-homepage.component';
+import { RidingLessonsComponent } from './riding-lessons/riding-lessons.component';
+import { LessonsDialogBoxComponent } from './lessons-dialog-box/lessons-dialog-box.component';
+import { AccountManagementComponent } from './account-management/account-management.component';
+import { LoginInstructorComponent } from './login-instructor/login-instructor.component';
+import { LoginAdminComponent } from './login-admin/login-admin.component';
+import { LoginSuperAdminComponent } from './login-super-admin/login-super-admin.component';
+import { LessonsManagementComponent } from './lessons-management/lessons-management.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
+import { LessonsCreationComponent } from './lessons-creation/lessons-creation.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { AdminregistrationComponent } from './adminregistration/adminregistration.component';
+import { HiloginComponent } from './hilogin/hilogin.component';
+import { HiregistrationComponent } from './hiregistration/hiregistration.component';
+import { RiderloginComponent } from './riderlogin/riderlogin.component';
+import { RiderregistrationComponent } from './riderregistration/riderregistration.component';
+import { WaloginComponent } from './walogin/walogin.component';
+import { WaregistrationComponent } from './waregistration/waregistration.component';
+import { HorsesCreationComponent } from './horses-creation/horses-creation.component';
+import { HorseDetailsComponent } from './horse-details/horse-details.component';
+import { HorsesListComponent } from './horses-list/horses-list.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegistrationComponent],
+  declarations: [
+    AppComponent,
+    LoginUserComponent,
+    RegistrationComponent,
+    HomeComponent,
+    InstructorHomepageComponent,
+    NavigationComponent,
+    UserHomepageComponent,
+    AdminHomepageComponent,
+    AccountRecoveryComponent,
+    HorsesManagementComponent,
+    HorsesDialogBoxComponent,
+    UsersManagementComponent,
+    UsersDialogBoxComponent,
+    SuperAdminHomepageComponent,
+    RidingLessonsComponent,
+    LessonsDialogBoxComponent,
+    AccountManagementComponent,
+    LoginInstructorComponent,
+    LoginAdminComponent,
+    LoginSuperAdminComponent,
+    LessonsManagementComponent,
+    LessonsCreationComponent,
+    AdminloginComponent,
+    AdminregistrationComponent,
+    HiloginComponent,
+    HiregistrationComponent,
+    RiderloginComponent,
+    RiderregistrationComponent,
+    WaloginComponent,
+    WaregistrationComponent,
+    HorsesCreationComponent,
+    HorseDetailsComponent,
+    HorsesListComponent
+  ],
   imports: [
-    BrowserModule, 
-    FormsModule, 
-    HttpClientModule, 
-    AppRoutingModule, 
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
     MatListModule,
@@ -59,9 +127,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MatGridListModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

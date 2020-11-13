@@ -1,0 +1,50 @@
+<mat-card class="mat-elevation-z5">
+    <mat-card-content>
+        <button mat-button routerLink="/lessons-creation" class="creation">Créer un nouveau cours</button>
+
+        <mat-form-field>
+            <mat-label>Recherche</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Galop 2" #input>
+        </mat-form-field>
+
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+                <!-- Schedules Column -->
+                <ng-container matColumnDef="schedules">
+                    <th mat-header-cell *matHeaderCellDef> Horaires </th>
+                    <td mat-cell *matCellDef="let element"> Le {{ element.lessonDate | date:'dd/MM/yy' }} de {{ element.lessonStart | date:'HH:mm' }} à {{ element.lessonEnd | date:'HH:mm' }} </td>
+                </ng-container>
+
+                <!-- Groupe size Column -->
+                <ng-container matColumnDef="groupSize">
+                    <th mat-header-cell *matHeaderCellDef> Taille du groupe </th>
+                    <td mat-cell *matCellDef="let element"> {{element.lessonGroupSize}} éleves </td>
+                </ng-container>
+
+                <!-- Instructor Column -->
+                <ng-container matColumnDef="instructor">
+                    <th mat-header-cell *matHeaderCellDef> Moniteur </th>
+                    <td mat-cell *matCellDef="let element"> {{element.lessonInstructor}} </td>
+                </ng-container>
+                
+                <!-- Level Column -->
+                <ng-container matColumnDef="level">
+                    <th mat-header-cell *matHeaderCellDef> Niveau </th>
+                    <td mat-cell *matCellDef="let element"> Galop {{element.lessonLevel}} </td>
+                </ng-container>
+
+                <!-- Recurrence Column -->
+                <ng-container matColumnDef="recurrence">
+                    <th mat-header-cell *matHeaderCellDef> Récurrent </th>
+                    <td mat-cell *matCellDef="let element"> {{element.lessonRecurrence}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Fiche de renseignements de : <strong>{{data.lastname}} {{data.surname}}</strong></h1>
+<div mat-dialog-content>
+    <mat-grid-list cols="2" rowHeight="1:1">
+        <mat-grid-tile>
+            <div>
+                <mat-grid-tile-header [style.background]="'darkseagreen'">Coordonnées</mat-grid-tile-header>
+                <p>Nom : <strong>{{data.lastname}}</strong></p>
+                <p>Prénom : <strong>{{data.surname}}</strong></p>
+                <p>Adresse email : <strong>{{data.email}}</strong></p>
+                <p>Numéro de téléphone : <strong>{{data.phone}}</strong></p>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <div>
+                <mat-grid-tile-header>Informations</mat-grid-tile-header>
+                <p>Type : <strong>{{data.type}}</strong></p>
+                <p>Numéro de licence : <strong>{{data.license}}</strong></p>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">Fermer</button>
+</div>
