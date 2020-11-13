@@ -79,7 +79,7 @@ public class RegistrationController {
         return new ResponseEntity<>("Le cheval à été supprimer!", HttpStatus.OK);
     }
 
-    @GetMapping("/amins")
+    @GetMapping("/admins")
     public List<Admin> getAllAdmins(){
         List<Admin> admins = new ArrayList<>();
 
